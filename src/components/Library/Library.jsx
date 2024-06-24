@@ -2,7 +2,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 
-export default function Books() {
+export default function Library() {
   const [books, setBooks] = useState([])
 
   useEffect(() => {

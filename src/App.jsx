@@ -1,21 +1,23 @@
-import { useState } from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Books from './components/Books'
-import Navigations from './components/Navigations'
+import Library from "./components/Library/Library";
+import Register from "./components/Register/Register";
+
+import Navigations from "./Navigations";
 
 function App() {
-  const [token, setToken] = useState(null)
-
   return (
     <>
       <Navigations />
-      <Routes>
-        <Route path='/' element={<div>Hello</div>} />
-        <Route path='/books' element={<Books />} />
-      </Routes>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Register />}></Route>
+          <Route path="/Register" element={<Register />} />
+          <Route path="/Library" element={<Library />} />
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
