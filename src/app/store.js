@@ -5,7 +5,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { api } from "./api";
 import registerReducer from "../components/Register/RegisterSlice";
 import libraryReducer from "../components/Library/LibrarySlice";
-import { bookReducer } from "../components/Book/BookSlice";
+import bookReducer from "../components/Book/BookSlice";
 
 const store = configureStore({
   reducer: {

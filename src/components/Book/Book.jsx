@@ -1,46 +1,36 @@
-/* TODO - add your code to create a functional React component that renders details for a single book. Fetch the book data from the provided API. You may consider conditionally rendering a 'Checkout' button for logged in users. */
+// /* TODO - add your code to create a functional React component that renders details for a single book. Fetch the book data from the provided API. You may consider conditionally rendering a 'Checkout' button for logged in users. */
 
-import { useSelector, useDispatch } from "react-redux";
-//import { useState } from "react";
+import { useParams } from "react-router-dom";
+
+import { useState, useEffect } from "react";
 
 import { useGetBookQuery } from "./BookSlice";
-import { setCurrentBook } from "./BookSlice";
+import BookDetails from "./BookDetails";
 
 export default function Book(newBook) {
-  //  const [book, setBook] = useState(null);
-  const book = useSelector((state) => state.book);
-  // TODO This needs to be "selected book"
-  const { data, isSuccess } = useGetBookQuery(newBook.id);
+  const { id } = useParams();
+  const [book, setBook] = useState();
 
-  const dispatch = useDispatch();
+  // TODO should this be in useEffect?
+  const { data, isSuccess } = useGetBookQuery(id);
+  //  useEffect(() => {
+  //    const { data, isSuccess } = useGetBookQuery(id);
+  //  }, [id]);
 
-  const onLoadClick = (e) => {
-    e.preventDefault();
+  console.log(`Book with id ${id}`);
 
-    if (isSuccess) {
-      // TODO Validate this is the right Way to get the data
-      //    setBook(JSON.parse(data));
-      dispatch(setCurrentBook(JSON.parse(data)));
-    }
-  };
+  if (isSuccess) {
+    // TODO See what this "newBook" looks like
+    setBook(JSON.parse(data).book);
+    //setBook(JSON.parse(data));
+    console.log(`the new current book just data:  ${data.book}`);
+    console.log(`the new current book JSON:  ${JSON.parse(data).book}`);
+    console.log(`the new current book:  ${book}`);
+  }
+  // TODO - no book info
 
+  console.log("Book-PriorToReturn");
   return (
-    <section className="booksContainer">
-      <form onSubmit={onLoadClick}>
-        <div className="bookSearchContainer">
-          <button name="loadBookList">Load Book List</button>
-        </div>
-      </form>
-
-      {/* Create the list of book data*/}
-      <div>
-        <h1>The Book</h1>
-        <p> {book.title}</p>
-        <p> {book.author}</p>
-        <p> {book.description}</p>
-        <p> {book.coverimage}</p>
-        <p> {book.available ? "Yes" : "No"}</p>
-      </div>
-    </section>
+    <section className="booksContainer">{book && BookDetails(book)}</section>
   );
 }

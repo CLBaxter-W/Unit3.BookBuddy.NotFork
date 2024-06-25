@@ -1,12 +1,13 @@
-import React from "react";
+// import React from "react";
+
 import { createSlice } from "@reduxjs/toolkit";
 import { api } from "../../app/api";
 
 const bookApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getBook: builder.query({
-      query: () => ({
-        url: "/books",
+      query: (id) => ({
+        url: `/books/${id}`,
         method: "GET",
         responseHandler: (response) => response.text(),
       }),
@@ -17,16 +18,7 @@ const bookApi = api.injectEndpoints({
 
 const bookSlice = createSlice({
   name: "book",
-  initialState: {
-    selectedBook: {},
-  },
-
-  reducers: {
-    setCurrentBook: (state, { payload }) => {
-      (state.selectedBook = payload.selectedBook),
-        console.log("in setCurrentBook: ", state.selectedBook);
-    },
-  },
+  initialState: {},
 
   extraReducers: (builder) => {
     builder.addMatcher(
@@ -40,5 +32,3 @@ const bookSlice = createSlice({
 
 export default bookSlice.reducer;
 export const { useGetBookQuery } = bookApi;
-export const { setCurrentBook } = bookSlice.actions;
-export const selectedBook = (state) => state.book.selectedBook;
