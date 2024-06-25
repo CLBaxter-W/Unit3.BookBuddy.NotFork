@@ -1,29 +1,56 @@
 /* TODO - add your code to create a functional React component that displays all of the available books in the library's catalog. Fetch the book data from the provided API. Users should be able to click on an individual book to navigate to the SingleBook component and view its details. */
-import axios from "axios"
-import { useState, useEffect } from "react"
+
+import BookRow from "../Book/BookRow";
+
+
+import { useGetLibraryQuery } from "./LibrarySlice";
+import { useState } from "react";
 
 export default function Library() {
-  const [books, setBooks] = useState([])
+  const [library, setLibrary] = useState(null);
+  const { data, isSuccess } = useGetLibraryQuery();
 
-  useEffect(() => {
-    async function loadBooks() {
-      try {
-        const { data } = await axios.get('https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books')
-        setBooks(data.books)
-      } catch(e) {
-        console.error(e)
-      }
-    }
-    loadBooks()
-  }, [])
+  const onLoadClick = (e) => {
+    e.preventDefault();
 
-  return <main>
-    {
-      books.map(book => {
-        return (
-          <h2 key={book.id}>{book.title}</h2>
-        )
-      })
+    if (isSuccess) {
+      setLibrary(JSON.parse(data).books);
     }
-  </main>
+  };
+
+  return (
+    <section className="booksListContainer">
+      <form onSubmit={onLoadClick}>
+        <div className="bookSearchContainer">
+          {/* TO DO ADD Search functionality */}
+          <button name="loadBooks">Load Book List</button>
+        </div>
+      </form>
+
+      {/* Create Headers for the list of books*/}
+      <div>
+        <h1>Book List</h1>
+        <table>
+          <thead>
+            <tr>
+              <th colSpan="3">Book List</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Title</td>
+              <td>Author</td>
+              <td>Available</td>
+            </tr>
+
+            {/* Create Rows in the List of Books for each library Book*/}
+            {library &&
+              library.map((book) => {
+                return <BookRow key={book.id} newBook={book} />;
+              })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
 }

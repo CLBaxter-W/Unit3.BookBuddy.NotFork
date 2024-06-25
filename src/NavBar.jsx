@@ -3,18 +3,18 @@
 import bookLogo from "./assets/old-books.jpg";
 import { Link } from "react-router-dom";
 
-import Library from "./components/Library/Library.jsx";
-import Register from "./components/Register/Register.jsx";
-
-export default function Navigations() {
+export default function NavBar() {
   return (
-    <nav>
-      <h1>
-        <img id="logo-image" src={bookLogo} />
-        Library App
-      </h1>
-      <Link to="/Register">Register</Link>
-      <Link to="/Library">Library</Link>
-    </nav>
+    <div id="navbar">
+      <nav>
+        <img id="logo-image" src={bookLogo} /> Library App
+      </nav>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/Register">Register User</Link>
+        <Link to="/User">User Profile</Link>
+        <Link to="Library">Library</Link>
+      </nav>
+    </div>
   );
 }

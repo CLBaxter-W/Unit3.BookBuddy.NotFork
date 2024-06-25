@@ -1,18 +1,21 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Library from "./components/Library/Library";
-import Register from "./components/Register/Register";
+import Library from "./components/Library/Library.jsx";
+import Register from "./components/Register/Register.jsx";
+import User from "./components/User/User.jsx";
+import Home from "./components/Home/Home.jsx";
 
-import Navigations from "./Navigations";
+import NavBar from "./NavBar";
 
 function App() {
   return (
     <>
-      <Navigations />
       <Router>
+        <NavBar />
         <Routes>
-          <Route path="/" element={<Register />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="/Register" element={<Register />} />
+          <Route path="/User" element={<User />} />
           <Route path="/Library" element={<Library />} />
         </Routes>
       </Router>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "./RegisterSlice";
@@ -8,7 +7,9 @@ export default function Register() {
 
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    email: "",
+    firstName:"",
+    lastName: "",
+        email: "",
     password: "",
   });
 
@@ -36,13 +37,24 @@ export default function Register() {
     <div>
       <form onSubmit={submit}>
         <div className="form-group">
-          <label>Email address</label>
+          <label>First Name</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            name="email"
+            aria-describedby="firstNameHelp"
+            placeholder="Enter first name"
+            name="fistName"
+            onChange={updateForm}
+          />
+        </div>
+        <div className="form-group">
+          <label>Last Name</label>
+          <input
+            type="text"
+            className="form-control"
+            aria-describedby="lastNameHelp"
+            placeholder="Enter last name"
+            name="lastName"
             onChange={updateForm}
           />
         </div>
