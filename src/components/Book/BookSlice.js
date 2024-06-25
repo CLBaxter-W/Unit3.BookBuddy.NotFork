@@ -1,3 +1,4 @@
+import React from "react";
 import { createSlice } from "@reduxjs/toolkit";
 import { api } from "../../app/api";
 
@@ -16,7 +17,17 @@ const bookApi = api.injectEndpoints({
 
 const bookSlice = createSlice({
   name: "book",
-  initialState: {},
+  initialState: {
+    selectedBook: {},
+  },
+
+  reducers: {
+    setCurrentBook: (state, { payload }) => {
+      (state.selectedBook = payload.selectedBook),
+        console.log("in setCurrentBook: ", state.selectedBook);
+    },
+  },
+
   extraReducers: (builder) => {
     builder.addMatcher(
       api.endpoints.getLibrary.matchFulfilled,
@@ -28,5 +39,6 @@ const bookSlice = createSlice({
 });
 
 export default bookSlice.reducer;
-
 export const { useGetBookQuery } = bookApi;
+export const { setCurrentBook } = bookSlice.actions;
+export const selectedBook = (state) => state.book.selectedBook;

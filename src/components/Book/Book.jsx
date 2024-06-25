@@ -1,22 +1,26 @@
 /* TODO - add your code to create a functional React component that renders details for a single book. Fetch the book data from the provided API. You may consider conditionally rendering a 'Checkout' button for logged in users. */
 
-import React from "react";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+//import { useState } from "react";
 
 import { useGetBookQuery } from "./BookSlice";
+import { setCurrentBook } from "./BookSlice";
 
 export default function Book(newBook) {
-  const [book, setBook] = useState(null);
-
+  //  const [book, setBook] = useState(null);
+  const book = useSelector((state) => state.book);
   // TODO This needs to be "selected book"
   const { data, isSuccess } = useGetBookQuery(newBook.id);
+
+  const dispatch = useDispatch();
 
   const onLoadClick = (e) => {
     e.preventDefault();
 
     if (isSuccess) {
-      // TODOO Validate this is the right Way to get the data
-      setBook(JSON.parse(data));
+      // TODO Validate this is the right Way to get the data
+      //    setBook(JSON.parse(data));
+      dispatch(setCurrentBook(JSON.parse(data)));
     }
   };
 
@@ -24,7 +28,7 @@ export default function Book(newBook) {
     <section className="booksContainer">
       <form onSubmit={onLoadClick}>
         <div className="bookSearchContainer">
-          <button name="loadBook">Load Book</button>
+          <button name="loadBookList">Load Book List</button>
         </div>
       </form>
 
