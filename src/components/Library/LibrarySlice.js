@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { api } from "../../app/api";
 
-
-
 const libraryApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getLibrary: builder.query({
@@ -23,6 +21,15 @@ const librarySlice = createSlice({
     bookList: [],
   },
 
+  reducers: {
+    setBookList: (state, { payload }) => {
+      console.log("setBookList Reducer - payload: ", payload.books);
+
+      // TO DO correct way to set array - this is not the correct way to set the array, it shares handle to content
+      state.bookList = payload.books;
+    },
+  },
+
   extraReducers: (builder) => {
     builder.addMatcher(
       api.endpoints.getLibrary.matchFulfilled,
@@ -32,6 +39,9 @@ const librarySlice = createSlice({
     );
   },
 });
+
+export const { setBookList } = librarySlice.actions;
+export const selectBookList = (state) => state.book.bookList;
 
 export default librarySlice.reducer;
 export const { useGetLibraryQuery } = libraryApi;
