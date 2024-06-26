@@ -1,26 +1,159 @@
-body {
-  font-family: Georgia, serif;
-  background-color: #f8f8f8;
+
+ * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+@media (max-width: 480px) {
+  .navbar{
+  display: block;
+  }
+}
+
+body,
+input {
+  font-family: Georgia, serif;
+  font-size: 20px;
 }
 
 #logo-image {
-  width: 30px;
-  margin-right: 10px;
+ 
+  display: block;
+  width: 1200px;
+  height: 500px;
+  background-color: #333;
+  /* position: fixed; */
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: 0px 10px 10px rgba(201, 150, 150, 0.5);
+  margin-top:120px;
+  opacity: 80%;
+  z-index: 0;
+ 
 }
 
-/* Add your own custom styles here */
+.NavBar {
+display: flex;
+ position: fixed;
+ top: 0;
+ left: 0;
+  background-color: #d2c5c5;
+  width: 100%;
+  padding: 20px;
+  border-radius:10px;
+  box-shadow: 0px 10px 25px rgba(184, 164, 164, 0.5);
+  font-size: 30px;
+  z-index: 2;
 
-nav h1 {
-  display: inline;
-  margin: 2em;
+
 }
 
-nav a {
-  margin: 2em;
+
+
+.form-group {
+display: inline;
+  align-items: center;
+  justify-content: center;
+  color: #070707;
+  font-size: 12px;
+  width: 300px;
+  font-weight: bold;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 10px;
+  z-index: 1; 
+  
+} 
+
+
+.change {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  height: 40px;
+  padding-top:8px;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgb(180, 180, 183);
+  color: white;
+  margin-right: 200px;
+ 
+} 
+
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"]{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 250px;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  border: 2px solid #827d7d;
+  color: #b92d2d;
+  font-size: 10px;
+  border-radius: 6px;
 }
 
-nav {
-  margin: 2em;
+h1 {
+  position: relative;
+  margin-top: -460px;
+  color: rgb(29, 23, 25);
+  margin-left: 20px;
+  font-size: 80px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  z-index: 0;
+  
 }
+
+.home1{
+margin-top: 400px;
+
+}
+
+.reg1{
+  position: relative;
+ display: flex;
+  margin-left: 850px;
+  margin-top: -50px;
+  width: 300px;
+  height: 350px;
+  border: 1px solid rgb(13, 13, 12);
+  border-radius: 10px;
+  font-family: raleway;
+  background-color: #f8f5f5;
+  z-index: 2;
+  padding-left: 20px;
+  padding-top: 10px;
+      
+    
+}
+
+
+.booksListContainer{
+  margin-top: 400px;
+
+}
+
+/* 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

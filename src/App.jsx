@@ -7,6 +7,7 @@ import Home from "./components/Home/Home.jsx";
 
 import NavBar from "./NavBar";
 
+
 function App() {
   return (
     <>
@@ -17,6 +18,8 @@ function App() {
           <Route path="/Register" element={<Register />} />
           <Route path="/User" element={<User />} />
           <Route path="/Library" element={<Library />} />
+
+      
         </Routes>
       </Router>
     </>

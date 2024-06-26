@@ -35,6 +35,7 @@ export default function Register() {
 
   return (
     <div>
+      <div className="reg1">
       <form onSubmit={submit}>
         <div className="form-group">
           <label>First Name</label>
@@ -46,7 +47,7 @@ export default function Register() {
             name="fistName"
             onChange={updateForm}
           />
-        </div>
+      
         <div className="form-group">
           <label>Last Name</label>
           <input
@@ -57,7 +58,17 @@ export default function Register() {
             name="lastName"
             onChange={updateForm}
           />
-        </div>
+
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="Email"
+            className="form-control"
+            placeholder="Enter your email"
+            name="password"
+            onChange={updateForm}
+          />
+        
         <div className="form-group">
           <label>Password</label>
           <input
@@ -68,10 +79,16 @@ export default function Register() {
             onChange={updateForm}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        </div>
+        </div>
+        
+        </div>
+        <div className="form-submit">
+        <button type="button" className="btn btn-primary change">Submit</button>
+      </div>
+      
       </form>
+      </div>
     </div>
   );
 }
