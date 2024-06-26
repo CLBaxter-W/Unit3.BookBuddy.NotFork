@@ -1,36 +1,41 @@
 // /* TODO - add your code to create a functional React component that renders details for a single book. Fetch the book data from the provided API. You may consider conditionally rendering a 'Checkout' button for logged in users. */
 
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
-import { useState, useEffect } from "react";
+//import { useState } from "react";
 
-import { useGetBookQuery } from "./BookSlice";
+import { setBook, useGetBookQuery } from "./BookSlice";
 import BookDetails from "./BookDetails";
 
-export default function Book(newBook) {
+export default function Book() {
   const { id } = useParams();
-  const [book, setBook] = useState();
 
-  // TODO should this be in useEffect?
-  const { data, isSuccess } = useGetBookQuery(id);
-  //  useEffect(() => {
-  //    const { data, isSuccess } = useGetBookQuery(id);
-  //  }, [id]);
+  const book = useSelector((state) => state.selectedBook);
 
-  console.log(`Book with id ${id}`);
+  //const dispatch = useDispatch();
+  //const temp = dispatch(useGetBookQuery(id));
 
-  if (isSuccess) {
-    // TODO See what this "newBook" looks like
-    setBook(JSON.parse(data).book);
-    //setBook(JSON.parse(data));
-    console.log(`the new current book just data:  ${data.book}`);
-    console.log(`the new current book JSON:  ${JSON.parse(data).book}`);
-    console.log(`the new current book:  ${book}`);
+  const temp = useGetBookQuery(id);
+  console.log(temp);
+
+  console.log(`isSuccess:  ${temp.isSuccess}`);
+  if (temp && temp.isSuccess) {
+    console.log(JSON.parse(temp.data).book);
+
+    // setBook(JSON.parse(temp.data).book);
+    console.log(" If Book-PriorToReturn");
+
+    return (
+      <section className="booksContainer">
+        {JSON.parse(temp.data).book && (
+          <BookDetails book={JSON.parse(temp.data).book} />
+        )}
+      </section>
+    );
+  } else {
+    console.log("Else Book-PriorToReturn");
+
+    return <div> Loading </div>;
   }
-  // TODO - no book info
-
-  console.log("Book-PriorToReturn");
-  return (
-    <section className="booksContainer">{book && BookDetails(book)}</section>
-  );
 }

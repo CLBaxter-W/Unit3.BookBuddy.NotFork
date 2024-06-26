@@ -18,7 +18,16 @@ const bookApi = api.injectEndpoints({
 
 const bookSlice = createSlice({
   name: "book",
-  initialState: {},
+  initialState: {
+    selectedBook: {},
+  },
+
+  reducers: {
+    setBook: (state, { payload }) => {
+      console.log("setBook Reducer - payload: ", payload.book);
+      state.selectedBook = payload.book;
+    },
+  },
 
   extraReducers: (builder) => {
     builder.addMatcher(
@@ -30,5 +39,9 @@ const bookSlice = createSlice({
   },
 });
 
+export const { setBook } = bookSlice.actions;
+export const selectSelectedBook = (state) => state.book.selectedBook;
+
 export default bookSlice.reducer;
+
 export const { useGetBookQuery } = bookApi;
