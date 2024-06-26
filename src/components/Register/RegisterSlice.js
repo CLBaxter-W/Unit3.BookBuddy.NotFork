@@ -5,7 +5,7 @@ const registerApi = api.injectEndpoints({
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (credentials) => ({
-        url: "auth/register",
+        url: "users/register",
         method: "POST",
         body: credentials,
       }),
@@ -16,6 +16,8 @@ const registerApi = api.injectEndpoints({
 
 const storeToken = (state, { payload }) => {
   state.token = payload.token;
+
+  console.log(`storeToken Register : ${state.token}`);
 };
 
 const registerSlice = createSlice({

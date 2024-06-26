@@ -11,8 +11,9 @@ export default function NavBar() {
       </nav>
       <nav>
         <Link to="/">Home</Link>
+        <Link to="/Login">Log In User</Link>
         <Link to="/Register">Register User</Link>
-        <Link to="/User">User Profile</Link>
+        <Link to="/User">User Profile</Link> 
         <Link to="/Library">Library</Link>
       </nav>
     </div>

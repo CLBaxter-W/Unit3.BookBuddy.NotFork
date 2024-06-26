@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 export default function BookDetails({ book }) {
   const navigate = useNavigate();
 
-  console.log("BookDetails");
-
   return (
     <div>
       <h1>The Book</h1>
