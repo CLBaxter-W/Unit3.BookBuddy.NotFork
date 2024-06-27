@@ -29,7 +29,7 @@ export default function Library() {
 
       {/* Create Headers for the list of books*/}
       <div>
-        <h1>Book List</h1>
+        {/* <h1>Book List</h1> */}
         <table>
           <thead>
             <tr>
@@ -38,9 +38,9 @@ export default function Library() {
           </thead>
           <tbody>
             <tr>
-              <td>Title</td>
+              {/* <td>Title</td>
               <td>Author</td>
-              <td>Available</td>
+              <td>Available</td> */}
             </tr>
 
             {/* Create Rows in the List of Books for each library Book*/}
