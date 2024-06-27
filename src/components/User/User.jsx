@@ -4,7 +4,7 @@ import { useGetUserQuery } from "./UserSlice.js";
 import { useEffect, useState } from "react";
 
 export default function User() {
-  const [user, getUser] = useState([]);
+  const [user, setUser] = useState([]);
 
   console.log("In User");
 
@@ -12,7 +12,7 @@ export default function User() {
 
   useEffect(() => {
     if (isSuccess) {
-      getUser(JSON.parse(data));
+      setUser(JSON.parse(data));
     }
   }, [isSuccess]);
 

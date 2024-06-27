@@ -5,8 +5,7 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api",
     prepareHeaders: (headers, { getState }) => {
-    //const token = getState(); // .login.token;
-    const token = getState().register.token;
+      const token = getState().register.token || getState().login.token;
 
       console.log(` prepare headers Token: ${token}`);
 
