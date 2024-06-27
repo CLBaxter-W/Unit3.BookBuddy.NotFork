@@ -3,23 +3,23 @@ import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <div id="navbar">
+    <div>
 
 
-      <div className="NavBar">
-      <nav>
+      <div id="navbar" className="NavBar"> 
+     
       
         <Link to="/">Home</Link>
         <Link to="/Register">Register User</Link>
         <Link to="/User">User Profile</Link>
         <Link to="/Library">Library</Link>
-      </nav>
+      
       </div>
 
-      <nav>
+     <div className="Image">
       <img id="logo-image" src={bookLogo} /> 
       <h1>LIBRARY APP</h1>
-      </nav>
+      </div>
     </div>
   );
 }
