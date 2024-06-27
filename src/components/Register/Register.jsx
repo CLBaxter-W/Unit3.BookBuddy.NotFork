@@ -7,9 +7,9 @@ export default function Register() {
 
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    firstName:"",
+    firstName: "",
     lastName: "",
-        email: "",
+    email: "",
     password: "",
   });
 
@@ -26,13 +26,14 @@ export default function Register() {
       let success = false;
       success = await registerUser(form).unwrap();
       if (success) {
-        navigate("/users");
+        navigate(`/User`);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
+  // TODO handle login errors
   return (
     <div>
       <div className="reg1">
@@ -44,7 +45,7 @@ export default function Register() {
             className="form-control"
             aria-describedby="firstNameHelp"
             placeholder="Enter first name"
-            name="fistName"
+            name="firstName"
             onChange={updateForm}
           />
       
@@ -69,6 +70,16 @@ export default function Register() {
             onChange={updateForm}
           />
         
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Email@xxx.com"
+            name="email"
+            onChange={updateForm}
+          />
+        </div>
         <div className="form-group">
           <label>Password</label>
           <input

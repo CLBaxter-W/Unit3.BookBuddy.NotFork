@@ -10,6 +10,7 @@ export default function NavBar() {
      
       
         <Link to="/">Home</Link>
+        <Link to="/Login">Log In User</Link>
         <Link to="/Register">Register User</Link>
         <Link to="/User">User Profile</Link>
         <Link to="/Library">Library</Link>
@@ -20,6 +21,7 @@ export default function NavBar() {
       <img id="logo-image" src={bookLogo} /> 
       <h1>LIBRARY APP</h1>
       </div>
+
     </div>
   );
 }
