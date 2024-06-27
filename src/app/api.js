@@ -4,8 +4,11 @@ export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api",
+
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().register.token || getState().login.token;
+      const sessionToken = window.sessionStorage.getItem("Token");
+      const token =
+        getState().register.token || getState().login.token || sessionToken;
 
       console.log(` prepare headers Token: ${token}`);
 
@@ -17,6 +20,6 @@ export const api = createApi({
   }),
 
   // Modified to include Book and Library in addition to User
-  tagTypes: ["User", "Book", "Library"],
+  tagTypes: ["Register", "Login", "User", "Book", "Library"],
   endpoints: () => ({}),
 });

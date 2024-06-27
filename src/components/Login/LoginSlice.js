@@ -9,13 +9,14 @@ const loginApi = api.injectEndpoints({
         method: "POST",
         body: credentials,
       }),
-      invalidateTags: ["User"],
+      invalidateTags: ["Login"],
     }),
   }),
 });
 
 const storeToken = (state, { payload }) => {
   state.token = payload.token;
+  window.sessionStorage.setItem("Token", payload.token);
 
   console.log(`storeToken Login : ${state.token}`);
 };
