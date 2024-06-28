@@ -11,7 +11,8 @@ export default function Logout() {
   console.log("Logging Out");
 
   if (window.sessionStorage.getItem("Token")) {
-    window.sessionStorage.removeItem("Token");
+    // window.sessionStorage.removeItem("Token");
+    console.log("clearing session token");
   }
 
   return (
