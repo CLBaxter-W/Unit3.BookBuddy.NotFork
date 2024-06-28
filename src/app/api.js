@@ -7,8 +7,13 @@ export const api = createApi({
 
     prepareHeaders: (headers, { getState }) => {
       const sessionToken = window.sessionStorage.getItem("Token");
+
       const token =
         getState().register.token || getState().login.token || sessionToken;
+
+      console.log(`Register Token: ${getState().register.token}`);
+      console.log(`Login Token: ${getState().login.token}`);
+      console.log(`Session Token: ${sessionToken}`);
 
       console.log(` prepare headers Token: ${token}`);
 
@@ -19,7 +24,5 @@ export const api = createApi({
     },
   }),
 
-  // Modified to include Book and Library in addition to User
-  tagTypes: ["Register", "Login", "User", "Book", "Library"],
   endpoints: () => ({}),
 });

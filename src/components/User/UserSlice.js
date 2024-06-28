@@ -9,15 +9,13 @@ const userApi = api.injectEndpoints({
         method: "GET",
         responseHandler: (response) => response.text(),
       }),
-      providesTags: ["User"],
     }),
   }),
 });
 
 const userSlice = createSlice({
   name: "user",
-  initialState: {
-  },
+  initialState: {},
   extraReducers: (builder) => {
     builder.addMatcher(
       api.endpoints.getUser.matchFulfilled,

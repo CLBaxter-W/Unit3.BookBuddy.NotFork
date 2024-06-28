@@ -8,6 +8,7 @@ export default function UserDetails({ userProfile }) {
   return (
     <div className="user1">
       <form>
+        <h3>User Details</h3>
         <div className="form-group">
           <label>First Name: </label>
           <label>{` ${userProfile.firstname}`}</label>
