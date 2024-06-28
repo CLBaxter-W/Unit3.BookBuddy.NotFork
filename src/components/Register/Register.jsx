@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "./RegisterSlice";
-
+import { FaLock } from "react-icons/fa";
 export default function Register() {
   const [registerUser] = useRegisterMutation();
 
@@ -37,7 +37,9 @@ export default function Register() {
   return (
     <div>
       <div className="reg1">
+        
       <form onSubmit={submit}>
+
         <div className="form-group">
           <label>First Name</label>
           <input
@@ -49,7 +51,7 @@ export default function Register() {
             onChange={updateForm}
           />
       
-        <div className="form-group">
+        <div className="">
           <label>Last Name</label>
           <input
             type="text"
@@ -59,18 +61,8 @@ export default function Register() {
             name="lastName"
             onChange={updateForm}
           />
-
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="Email"
-            className="form-control"
-            placeholder="Enter your email"
-            name="password"
-            onChange={updateForm}
-          />
         
-        <div className="form-group">
+        <div className="">
           <label>Email</label>
           <input
             type="email"
@@ -79,24 +71,27 @@ export default function Register() {
             name="email"
             onChange={updateForm}
           />
-        </div>
-        <div className="form-group">
+
+       
+        <div className="">
           <label>Password</label>
-          <input
+          <input 
             type="password"
             className="form-control"
             placeholder="Password"
             name="password"
             onChange={updateForm}
           />
+          <FaLock />
+                  </div>
+        <div className="form-submit">
+        <button type="submit" className="btn btn-primary change">Submit</button>
+      </div>
         </div>
         </div>
         </div>
         
-        </div>
-        <div className="form-submit">
-        <button type="button" className="btn btn-primary change">Submit</button>
-      </div>
+
       
       </form>
       </div>

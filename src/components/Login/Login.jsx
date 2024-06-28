@@ -35,8 +35,9 @@ export default function Login() {
   // TODO handle login errors
   return (
     <div>
+      <div className="form-group1">
       <form onSubmit={submit}>
-        <div className="form-group">
+        <div className="form">
           <label>Username (email) </label>
           <input
             type="email"
@@ -47,7 +48,7 @@ export default function Login() {
             onChange={updateForm}
           />
         </div>
-        <div className="form-group">
+        <div className="">
           <label>Password</label>
           <input
             type="password"
@@ -61,6 +62,7 @@ export default function Login() {
           Submit
         </button>
       </form>
+    </div>
     </div>
   );
 }
