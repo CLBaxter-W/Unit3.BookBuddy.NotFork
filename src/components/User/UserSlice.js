@@ -16,7 +16,8 @@ const userApi = api.injectEndpoints({
 
 const userSlice = createSlice({
   name: "user",
-  initialState: {},
+  initialState: {
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       api.endpoints.getUser.matchFulfilled,
