@@ -9,7 +9,6 @@ const libraryApi = api.injectEndpoints({
         method: "GET",
         responseHandler: (response) => response.text(),
       }),
-      providesTags: ["Library"],
     }),
   }),
 });

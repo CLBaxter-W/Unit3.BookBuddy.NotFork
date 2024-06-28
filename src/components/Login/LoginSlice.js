@@ -9,7 +9,6 @@ const loginApi = api.injectEndpoints({
         method: "POST",
         body: credentials,
       }),
-      invalidateTags: ["Login"],
     }),
   }),
 });
@@ -23,14 +22,19 @@ const storeToken = (state, { payload }) => {
 
 const loginSlice = createSlice({
   name: "login",
-  initialState: {
-    user: {},
+  initialState: {},
+  reducers: {
+    clearLoginToken: (state) => {
+      state.token = null;
+      console.log(`clearLoginToken: ${state.token}`);
+    },
   },
-  reducers: {},
   extraReducers: (builder) => {
-    builder.addMatcher(api.endpoints.register.matchFulfilled, storeToken);
+    builder.addMatcher(api.endpoints.login.matchFulfilled, storeToken);
   },
 });
+
+export const { clearLoginToken } = loginSlice.actions;
 
 export default loginSlice.reducer;
 
