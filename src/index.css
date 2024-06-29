@@ -1,302 +1,146 @@
-/* 
- * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  
-} */
-/* new-navbar */
+/* navbar */
+
 .navbar {
-  background-color: #c63939;
+  /* The image used */
+  background-image: url("./assets/old-books.jpg");
+  position: fixed;
   overflow: hidden;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10px;
-}
 
-.nav-menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
+  min-height: 500px;
 
-.nav-item {
-  padding: 10px 20px;
-}
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-.nav-item a {
-  color: white;
-  text-decoration: none;
-}
-
-.nav-item a:hover {
-  text-decoration: underline;
-}
-
-@media screen and (max-width: 768px) {
-  .nav-menu {
-    flex-direction: column;
-  }
-
-  .nav-item {
-    padding: 10px;
-  }
-}
-
-/* done new navbar */
-
-/* @media (max-width: 480px) {
-
-  .navbar{
-  display: flexbox;
-  .logo-image
-  }
-} */
-
-@media only screen and (max-width: 480px) {
-  .NavBar{
-      font-size: 8px;
-  }
-}
-
-
-/* body,
-input {
-  font-family: Georgia, serif;
-  /* font-size: 20px; */
-  
-  /* font-size: 100%;
-} */ */
-
-.logo-image {
-  width: 300px;
-  overflow: hidden;
-}
-
-/* .NavBar {
-display: flex;
- position: fixed;
- top: 0;
- left: 0;
-  background-color: white;
-  width: 100%;
-  padding: 20px;
-  border-radius:0px;
-  box-shadow: 0px 10px 15px white;
- font-size: 2em;
- text-decoration: none;
-  z-index: 2;
-  justify-content: space-evenly;
-
-} */
-
-
-
-/* .form-group { */
-/* display: block;
-  align-items: center;
-  justify-content: center;
-  color: #070707;
-  font-size: 12px;
-  width: 300vw;
-  height: auto;
-  font-weight: bold;
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 10px;
-  z-index: 1; 
-
-}  */
-
-
-/* .change {
-
-  padding-top:8px;
-  font-size: 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  background: rgb(173, 173, 218);
-  color: rgb(22, 3, 39);
-  margin-right: 200px;
- 
-}  */
-
-
-
-
-
-h1 {
- position: sticky;
-  width: auto;
-  height: 50vw;
-  margin-top: 100px;
-  color: white;
-  margin-left: 20px;
-  font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: bold;
-  z-index: 2;
-
-  /* overflow: hidden; 
+  /* Needed to position the navbar */
   position: relative;
-  transition: transform 0.3s;
-  margin: 10px;  
-  gap: 10px;
-  float: left; */
-
-
-
-
-  
+  z-index: 0;
 }
 
-.home1{
-display: block;
-margin-top: 200px;
-
-
+Position the navbar container inside the image */ .cont {
+  position: absolute;
+  margin: 20px;
+  width: auto;
 }
+
+/* The navbar */
+.nav-menu {
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+  position: fixed; /* Fixed position to stick on top */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Navbar links */
+.nav-menu a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav-menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* end navbar */
+
+/* library app */
+.app {
+  display: flex;
+  position: relative;
+  color: white;
+  z-index: 1;
+  font-size: 60px;
+  margin-top: -89px;
+  margin-left: 20px;
+}
+/* end library app */
+
+/* welcome */
+.home1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: darkblue;
+}
+/* end welcome */
+
 /* sign up */
-.reg1{
-
-position: relative;
-margin-left: 750px;
-margin-top: 00px;
-width: 300px;
-height: 350px;
-align-items: center;
-padding-left: 30px;
-padding-right: 0px;
-padding-top: 30px;
-padding-bottom: 30px;
-background-color: aqua;
-border-radius: 10px;
-color: #201b1b;
-border-radius: 6px;
-z-index: 4;
-box-shadow: 0px 4px 8px rgba(74, 199, 159, 0.5);
-} 
+.reg1 {
+  position: relative;
+  margin-left: 1000px;
+  margin-top: -420px;
+  width: 300px;
+  height: 350px;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: aqua;
+  border-radius: 10px;
+  color: #201b1b;
+  border-radius: 6px;
+  box-shadow: 0px 4px 8px rgba(74, 199, 159, 0.5);
+}
 
 input[type="text"],
 input[type="password"],
-input[type="email"]{ 
-display: flex;
-flex-direction: column;
-width: 250px;
-height: 30px;
-padding: 5px;
-margin-bottom: 15px;
-margin-top: 0px;
-border: 2px solid #0b0b0b;
-font-size: 14px;
-border-radius: 6px;
+input[type="email"] {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 15px;
+  margin-top: 0px;
+  border: 2px solid #0b0b0b;
+  font-size: 14px;
+  border-radius: 6px;
 }
-    
-[type="submit"]{
-color: rgb(244, 250, 248);
-width: 250px;
-height: 30px;
-background-color: #060606;
-border-radius: 6px;
-border: 2px solid #050404;
-cursor: pointer;
+
+[type="submit"] {
+  color: rgb(244, 250, 248);
+  width: 250px;
+  height: 30px;
+  background-color: #060606;
+  border-radius: 6px;
+  border: 2px solid #050404;
+  cursor: pointer;
 }
 /* sign up done */
 
-
-
-/* .booksListContainer {
-  margin-top: 150px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  padding: 30px;
-  width: 90%;
-  max-width: 878px;
-  height: 600px;
-  position: relative;
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  row-gap: 100px;
-
-} */
-
-/* .pp{
-  
-    width: 300px;
-    height: 400px;
-    margin: 10px; 
-    background-color: #daf844;
-    border: 5px solid #636363;
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(172, 172, 172, 0.5); 
-    overflow: hidden; 
-    position: relative; 
-    transition: transform 0.3s;
-    font-size: 10px;
-    
-}  */
-
-/* 
-.pp:hover {
-  transform: translateY(
-    -10px
-  ); 
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 2);
- 
-} */
-
-/* .bookSearchContainer{
-background-color: #cfacac;
-
-} */
-
-.loadBooks{
-display: grid;
-background-color: green;
-border-radius: 10px;
-width: 200px;
-height: 100px;
-margin-top: 00px;
-font-size: 20px;
-color: white;
-align-items: center;
-cursor: pointer;
+.loadBooks {
+  display: grid;
+  background-color: green;
+  border-radius: 10px;
+  width: 200px;
+  height: 100px;
+  margin-top: 00px;
+  font-size: 20px;
+  color: white;
+  align-items: center;
+  cursor: pointer;
 }
 
-/* .booksListContainer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px;
-margin-top: 400px;
-color: blue;
-
--webkit-transition: all 0.5s ease-in-out;
--moz-transition: all 0.5s ease-in-out;
--ms-transition: all 0.5s ease-in-out;
--o-transition: all 0.5s ease-in-out;
-transition: all 0.5s ease-in-out;
--webkit-border-radius: 5px 5px 5px 5px;
-border-radius: 5px 5px 5px 5px;
-} */
-
-
-
-.books{
-  height:500px;
+/* single-books */
+.books {
+  height: 500px;
   width: 500px;
-  margin-left: 50px; 
+  margin-left: 50px;
   margin-top: 70px;
   background-color: #c8c9d0;
   border: 5px solid #636363;
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(172, 172, 172, 0.5); 
-  overflow: hidden; 
-  position: relative; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(172, 172, 172, 0.5);
+  overflow: hidden;
+  position: relative;
   transition: transform 0.3s;
   padding-top: 20px;
   padding-right: 20px;
@@ -306,45 +150,37 @@ border-radius: 5px 5px 5px 5px;
   margin-left: auto;
 }
 
-
 .books:hover {
-transform: translateY(
-  -10px
-); 
-box-shadow: 0 8px 16px rgba(0, 0, 0, 2);
-
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 2);
 }
 
-
-.img{
+.img {
   padding-top: 20px;
-  width:auto;
+  width: auto;
   height: 40%;
 }
 
-
-p1{
+p1 {
   font-size: 20px;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
-  color:#1539e9;
-  
+  color: #1539e9;
 }
 
-p2{
+p2 {
   font-size: 18px;
-  color:rgb(2, 66, 82);
+  color: rgb(2, 66, 82);
   font-family: Arial, Helvetica, sans-serif;
-
 }
 
-p3{
+p3 {
   font-size: 16px;
-  color:green;
+  color: green;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-[type="button"]{
+[type="button"] {
   margin-top: 15px;
   color: rgb(244, 250, 248);
   width: 250px;
@@ -354,42 +190,35 @@ p3{
   border: 2px solid #050404;
   text-transform: uppercase;
   cursor: pointer;
-  }
+}
 
+/* end single-books */
 
-
-
-
-
-  .book-card {
-    /* display: flex;
+/* list of the books */
+.book-card {
+  /* display: flex;
 flex-wrap: ; */
-  width: 220px; 
+  width: 220px;
   height: 200px;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(28, 16, 16, 0.5); 
+  box-shadow: 0 4px 8px rgba(28, 16, 16, 0.5);
   border-radius: 8px;
   padding: 10px;
-  overflow: hidden; 
+  overflow: hidden;
   display: grid;
   position: relative;
   /* transition: transform 0.3s; */
 
-  margin: 10px;  
+  margin: 10px;
   float: left;
   cursor: pointer;
-  
 }
 
 .book-card:hover {
-  transform: translateY(
-    -10px
-  ); 
+  transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 2);
-  
 }
-
 
 .book-card td {
   padding: 8px;
@@ -397,7 +226,7 @@ flex-wrap: ; */
   padding-left: 10px;
 }
 
-.title{
+.title {
   text-transform: uppercase;
   padding-top: 10px;
   font-weight: bolder;
@@ -406,7 +235,7 @@ flex-wrap: ; */
   text-align: center;
 }
 
-.author{
+.author {
   padding-top: 10px;
   font-weight: bolder;
   color: #408dd5;
@@ -420,35 +249,26 @@ flex-wrap: ; */
   text-align: center;
 }
 
-/* .B { */
-  /* padding-top: 10px;
-  color: white; 
-  text-decoration: none;
-  font-size: 16px;
-  background-color: #050404;
-  border-radius: 5px;
-  margin-top: px;
+.details {
+  margin-top: 15px;
+  color: rgb(244, 250, 248);
+  width: 200px;
+  height: 30px;
+  background-color: #e5d9d9;
+  border-radius: 6px;
+  text-transform: uppercase;
   cursor: pointer;
- 
-text-decoration: none;
-align-items: center;
-  width:150px;
-  height: 40px;
-  background-color: black;
-
-  border-radius: 6px; */
-  /* cursor: pointer;
-} */
-
-
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+  text-decoration: underline;
+}
 
 /* login */
 
-.form-group1{
-
+.form-group1 {
   position: relative;
-  margin-left: 750px;
-  margin-top: 00px;
+  margin-left: 1000px;
+  margin-top: -360px;
   width: 300px;
   height: 200px;
   align-items: center;
@@ -460,12 +280,12 @@ align-items: center;
   border-radius: 10px;
   color: #201b1b;
   border-radius: 6px;
-  z-index: 4;
+  z-index: 1;
   box-shadow: 0px 4px 8px rgba(74, 199, 159, 0.5);
-  } 
-  
-  input[type="Username (email)"],
-  input[type="password"]{ 
+}
+
+input[type="Username (email)"],
+input[type="password"] {
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -476,9 +296,9 @@ align-items: center;
   border: 2px solid #0b0b0b;
   font-size: 14px;
   border-radius: 6px;
-  }
-      
-  [type="submit"]{
+}
+
+[type="submit"] {
   color: rgb(244, 250, 248);
   width: 260px;
   height: 40px;
@@ -486,6 +306,6 @@ align-items: center;
   border-radius: 6px;
   border: 2px solid #050404;
   cursor: pointer;
-  }
+}
 
-  /* login end */
+/* login end */

@@ -1,6 +1,7 @@
-import bookLogo from "./assets/old-books.jpg";
+// import bookLogo from "./assets/old-books.jpg";
 import { Link } from "react-router-dom";
 import "./index.css";
+
 
 // export default function NavBar() {
 //   return (
@@ -35,30 +36,41 @@ export default function NavBar () {
   return (
     <div>
     <div className="navbar">
+
+      <div className="cont">
      
-      <ul className="nav-menu">
-        <li className="nav-item">
+      <div className="nav-menu">
+
+        <div className="nav-item">
           <Link to="/">Home</Link>
-        </li>
-        <li className="nav-item">
+        </div>
+
+        <div className="nav-item">
           <Link to="/Login">Log in User</Link>
-        </li>
-        <li className="nav-item">
+        </div>
+
+        <div className="nav-item">
           <Link to="/Register">Register User</Link>
-        </li>
-        <li className="nav-item">
+        </div>
+
+        <div className="nav-item">
           <Link to="/User">User Profile</Link>
-        </li>
-        <li className="nav-item">
+        </div>
+
+        <div className="nav-item">
           <Link to="/Library">Library</Link>
-        </li>
-      </ul>
- 
+        </div>
+      
+      </div>
+      </div>
  </div>
 
-{/* /* <div className="Image"><img id="logo-image" src={bookLogo} /> <h1>LIBRARY APP</h1></div> */}
-</div> 
+ <div className="app">LIBRARY APP</div>
+
+{/* <div className="image"><img id="logo-image" src={bookLogo} /> <h1>LIBRARY APP</h1></div> */}
+
+</div>
 
 
 );
-};
+}

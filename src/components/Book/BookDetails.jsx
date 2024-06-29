@@ -30,7 +30,7 @@ export default function BookDetails({ book }) {
 
       <p> Available: {book.available ? "Yes" : "No"}</p>
       <button
-        type="button"
+        type="submit"
         className="btn"
         onClick={() => navigate("/Library")}
       >

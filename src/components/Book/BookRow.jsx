@@ -15,7 +15,7 @@ export default function BookRow({ newBook }) {
      
       <div className="YN">Available: {newBook.available ? "Yes" : "No"}</div>
      
-     <div id="" className="">
+     <div id="details" className="details">
       <Link to={`/Book/${newBook.id}`}>See Details</Link>
       
       </div>
