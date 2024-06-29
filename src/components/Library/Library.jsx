@@ -22,18 +22,18 @@ export default function Library() {
       <form onSubmit={onLoadClick}>
         <div className="bookSearchContainer">
           
-          {/* TO DO ADD Search functionality */}
-          <button name="loadBooks">Load Book List</button>
+          
+          <button className="loadBooks">Load Book List</button>
         </div>
       </form>
 
       {/* Create Headers for the list of books*/}
-      <div>
+      <div className>
         {/* <h1>Book List</h1> */}
         <table>
           <thead>
             <tr>
-              <th colSpan="3">Book List</th>
+              {/* <th colSpan="3">Book List</th> */}
             </tr>
           </thead>
           <tbody>
@@ -44,10 +44,12 @@ export default function Library() {
             </tr>
 
             {/* Create Rows in the List of Books for each library Book*/}
+            <div className="pp">
             {library &&
               library.map((book) => {
                 return <BookRow key={book.id} newBook={book} />;
               })}
+              </div>
           </tbody>
         </table>
       </div>

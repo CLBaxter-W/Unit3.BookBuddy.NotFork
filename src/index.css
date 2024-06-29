@@ -1,85 +1,97 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
 
-@media (max-width: 480px) {
-  .navbar {
-    display: block;
-  }
-}
+/* navbar */
 
-body,
-input {
-  font-family: Georgia, serif;
-  font-size: 20px;
-}
+.navbar {
+  /* The image used */
+  background-image: url("./assets/old-books.jpg");
+  position: fixed;
+  overflow: hidden;
 
-#logo-image {
-  display: block;
-  width: auto;
-  height: 50vw;
+  min-height: 500px;
 
-  background-color: #333;
-  /* position: fixed; */
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  box-shadow: 0px 10px 10px rgba(201, 150, 150, 0.5);
-  margin-top: 120px;
-  opacity: 80%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
   z-index: 0;
 }
 
-.imageContainer {
-  z-index: -1;
+Position the navbar container inside the image */ .cont {
+  position: absolute;
+  margin: 20px;
+  width: auto;
 }
 
-.NavBar {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #cfacac;
+/* The navbar */
+.nav-menu {
+  overflow: hidden;
+  background-color: #333;
   width: 100%;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 10px 25px rgba(184, 164, 164, 0.5);
-  font-size: 30px;
-  z-index: 2;
-  justify-content: space-evenly;
+  position: fixed; /* Fixed position to stick on top */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1000; /* Ensure it's above other content */
 }
 
-.form-group {
-  display: inline;
-  align-items: center;
-  justify-content: center;
-  color: #070707;
-  font-size: 12px;
-  width: 300px;
-  font-weight: bold;
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 10px;
-  z-index: 3;
+/* Navbar links */
+.nav-menu a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.change {
+.nav-menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* end navbar */
+
+
+/* library app */
+.app {
   display: flex;
   position: relative;
-  flex-direction: column;
-  align-items: center;
-  width: 250px;
-  height: 40px;
-  padding-top: 8px;
-  font-size: 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  background: rgb(180, 180, 183);
+
   color: white;
-  margin-right: 200px;
+  z-index: 1;
+  font-size: 60px;
+  margin-top: -89px;
+  margin-left: 20px;
+}
+/* end library app */
+
+/* welcome */
+.home1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: darkblue;
+}
+/* end welcome */
+
+/* sign up */
+.reg1 {
+  position: relative;
+  margin-left: 1000px;
+  margin-top: -420px;
+  width: 300px;
+  height: 350px;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: aqua;
+  border-radius: 10px;
+  color: #201b1b;
+  border-radius: 6px;
+  box-shadow: 0px 4px 8px rgba(74, 199, 159, 0.5);
+
 }
 
 input[type="text"],
@@ -87,33 +99,225 @@ input[type="password"],
 input[type="email"] {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 250px;
   height: 30px;
   padding: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   margin-top: 0px;
-  border: 2px solid #827d7d;
-  color: #b92d2d;
-  font-size: 10px;
+  border: 2px solid #0b0b0b;
+  font-size: 14px;
   border-radius: 6px;
 }
 
-h1 {
+[type="submit"] {
+  color: rgb(244, 250, 248);
+  width: 250px;
+  height: 30px;
+  background-color: #060606;
+  border-radius: 6px;
+  border: 2px solid #050404;
+  cursor: pointer;
+}
+/* sign up done */
+
+.loadBooks {
+  display: grid;
+  background-color: green;
+  border-radius: 10px;
+  width: 200px;
+  height: 100px;
+  margin-top: 00px;
+  font-size: 20px;
+  color: white;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* single-books */
+.books {
+  height: 500px;
+  width: 500px;
+  margin-left: 50px;
+  margin-top: 70px;
+  background-color: #c8c9d0;
+  border: 5px solid #636363;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(172, 172, 172, 0.5);
+  overflow: hidden;
   position: relative;
-  margin-top: -460px;
-  color: rgb(29, 23, 25);
-  margin-left: 20px;
-  font-size: 80px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  z-index: 0;
+
+  transition: transform 0.3s;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.home1 {
-  margin-top: 400px;
+.books:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 2);
 }
 
+.img {
+  padding-top: 20px;
+  width: auto;
+  height: 40%;
+}
+
+p1 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1539e9;
+}
+
+p2 {
+  font-size: 18px;
+  color: rgb(2, 66, 82);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p3 {
+  font-size: 16px;
+  color: green;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+[type="button"] {
+  margin-top: 15px;
+  color: rgb(244, 250, 248);
+  width: 250px;
+  height: 30px;
+  background-color: #060606;
+  border-radius: 6px;
+  border: 2px solid #050404;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* end single-books */
+
+/* list of the books */
+.book-card {
+  /* display: flex;
+flex-wrap: ; */
+  width: 220px;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(28, 16, 16, 0.5);
+  border-radius: 8px;
+  padding: 10px;
+  overflow: hidden;
+  display: grid;
+  position: relative;
+  /* transition: transform 0.3s; */
+
+  margin: 10px;
+  float: left;
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 2);
+}
+
+.book-card td {
+  padding: 8px;
+  color: #bf8027;
+  padding-left: 10px;
+}
+
+.title {
+  text-transform: uppercase;
+  padding-top: 10px;
+  font-weight: bolder;
+  color: #1f1fe4;
+  font-size: 14px;
+  text-align: center;
+}
+
+.author {
+  padding-top: 10px;
+  font-weight: bolder;
+  color: #408dd5;
+  font-size: 16px;
+  text-align: center;
+}
+
+.YN {
+  padding-top: 10px;
+  color: #f33d29;
+  text-align: center;
+}
+
+.details {
+  margin-top: 15px;
+  color: rgb(244, 250, 248);
+  width: 200px;
+  height: 30px;
+  background-color: #e5d9d9;
+  border-radius: 6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+  text-decoration: underline;
+}
+
+/* login */
+
+.form-group1 {
+  position: relative;
+  margin-left: 1000px;
+  margin-top: -360px;
+  width: 300px;
+  height: 200px;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: aqua;
+  border-radius: 10px;
+  color: #201b1b;
+  border-radius: 6px;
+  z-index: 1;
+  box-shadow: 0px 4px 8px rgba(74, 199, 159, 0.5);
+}
+
+input[type="Username (email)"],
+input[type="password"] {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 15px;
+  margin-top: 0px;
+  border: 2px solid #0b0b0b;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+[type="submit"] {
+  color: rgb(244, 250, 248);
+  width: 260px;
+  height: 40px;
+  background-color: #060606;
+  border-radius: 6px;
+  border: 2px solid #050404;
+  cursor: pointer;
+}
+
+/* login end */
+
+
+/********************************/
+/*my work arounds.
 .reg1 {
   position: relative;
   display: flex;
@@ -170,15 +374,5 @@ h1 {
   color: rgb(22, 22, 122);
 }
 
-.booksListContainer {
-  margin-top: 400px;
-}
+/***** end work arounds. ****/
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
