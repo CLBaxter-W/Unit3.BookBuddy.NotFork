@@ -5,31 +5,36 @@ const loginApi = api.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (credentials) => ({
-        url: "users/login",
+        url: "/users/login",
         method: "POST",
         body: credentials,
       }),
-      invalidateTags: ["User"],
     }),
   }),
 });
 
 const storeToken = (state, { payload }) => {
   state.token = payload.token;
+  window.sessionStorage.setItem("Token", payload.token);
 
   console.log(`storeToken Login : ${state.token}`);
 };
 
 const loginSlice = createSlice({
   name: "login",
-  initialState: {
-    user: {},
+  initialState: {},
+  reducers: {
+    clearLoginToken: (state) => {
+      state.token = null;
+      console.log(`clearLoginToken: ${state.token}`);
+    },
   },
-  reducers: {},
   extraReducers: (builder) => {
-    builder.addMatcher(api.endpoints.register.matchFulfilled, storeToken);
+    builder.addMatcher(api.endpoints.login.matchFulfilled, storeToken);
   },
 });
+
+export const { clearLoginToken } = loginSlice.actions;
 
 export default loginSlice.reducer;
 

@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "./LoginSlice";
 
 export default function Login() {
+  
+  const [error, setError] = useState();
   const [loginUser] = useLoginMutation();
-
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
@@ -29,11 +30,13 @@ export default function Login() {
       }
     } catch (error) {
       console.log(error);
+      setError(error.data.message);
     }
   };
 
   // TODO handle login errors
   return (
+
     <div>
       <div className="form-group1">
       <form onSubmit={submit}>
@@ -58,10 +61,19 @@ export default function Login() {
             onChange={updateForm}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+           {/* Button here must be "type="submit" so it correctly proceeds */}
+          {/* to the callback to register the new user*/}
+          <button type="submit" className="btn btn-primary">Login</button>
+          {error ? (
+            <div className="loginError">
+              <br />
+              <h5>{error} - Please check your input and try again.</h5>
+            </div>
+          ) : null}
           Submit
         </button>
       </form>
+
     </div>
     </div>
   );

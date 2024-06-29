@@ -6,21 +6,41 @@ export default function UserDetails({ userProfile }) {
   console.log("UserDetails");
 
   return (
-    <div>
-      <h1>The User</h1>
-      <p> {userProfile.firstname}</p>
-      <p> {userProfile.lastname}</p>
-      <p> {userProfile.email}</p>
-     {/* <p> {userProfile.books}</p> */}
+    <div className="user1">
+      <form>
+        <h3>User Details</h3>
+        <div className="form-group">
+          <label>First Name: </label>
+          <label>{` ${userProfile.firstname}`}</label>
+          <br />
+        </div>
+        <div className="form-group">
+          <label>Last Name:</label>
+          <label>{` ${userProfile.lastname}`}</label>
+          <br />
+        </div>
 
-{/*TODO checkin/checkout buttons */}
+        <div className="form-group">
+          <label>Email:</label>
+          <label> {` ${userProfile.email}`}</label>
+          <br />
+        </div>
 
+        <div className="form-group">
+          <label>Books:</label>
+          {/* <p> {userProfile.books}</p> */}
+          <br />
+        </div>
 
-      <button type="button" className="btn" onClick={() => navigate("/Login")}>
-        Back
-      </button>
-      {/* TODO Link to lost page*/}
-      {/* <Link to="/*">Lost Page</Link>*/}
+        <button
+          type="button"
+          className="btn"
+          onClick={() => navigate("/Login")}
+        >
+          Back
+        </button>
+        {/*TODO checkin/checkout buttons */}
+      </form>
     </div>
   );
 }

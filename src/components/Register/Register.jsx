@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "./RegisterSlice";
 import { FaLock } from "react-icons/fa";
 export default function Register() {
+  const [error, setError] = useState();
   const [registerUser] = useRegisterMutation();
 
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
   });
@@ -30,6 +31,7 @@ export default function Register() {
       }
     } catch (error) {
       console.log(error);
+      setError(error.data.message);
     }
   };
 
@@ -37,6 +39,7 @@ export default function Register() {
   return (
     <div>
       <div className="reg1">
+
         
       <form onSubmit={submit}>
 
@@ -47,7 +50,7 @@ export default function Register() {
             className="form-control"
             aria-describedby="firstNameHelp"
             placeholder="Enter first name"
-            name="firstName"
+            name="firstname"
             onChange={updateForm}
           />
       
@@ -58,7 +61,7 @@ export default function Register() {
             className="form-control"
             aria-describedby="lastNameHelp"
             placeholder="Enter last name"
-            name="lastName"
+            name="lastname"
             onChange={updateForm}
           />
         
@@ -84,8 +87,18 @@ export default function Register() {
           />
           <FaLock />
                   </div>
-        <div className="form-submit">
-        <button type="submit" className="btn btn-primary change">Submit</button>
+
+  {/* Button here must be "type="submit" so it correctly proceeds */}
+          {/* to the callback to register the new user*/}
+          <div className="form-submit">
+            <button type="submit" btn btn-primary change>Register</button>
+
+            {error ? (
+              <div className="loginError">
+                <br />
+                <h5>{error} - Please check your input and try again.</h5>
+              </div>
+            ) : null}
       </div>
         </div>
         </div>
@@ -94,6 +107,7 @@ export default function Register() {
 
       
       </form>
+
       </div>
     </div>
   );

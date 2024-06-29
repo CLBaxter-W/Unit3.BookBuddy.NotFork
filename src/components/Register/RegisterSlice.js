@@ -9,27 +9,32 @@ const registerApi = api.injectEndpoints({
         method: "POST",
         body: credentials,
       }),
-      invalidateTags: ["User"],
     }),
   }),
 });
 
 const storeToken = (state, { payload }) => {
   state.token = payload.token;
+  window.sessionStorage.setItem("Token", payload.token);
 
   console.log(`storeToken Register : ${state.token}`);
 };
 
 const registerSlice = createSlice({
   name: "register",
-  initialState: {
-    user: {},
+  initialState: {},
+  reducers: {
+    clearRegisterToken: (state) => {
+      state.token = null;
+      console.log(`clearRegisterToken: ${state.token}`);
+    },
   },
-  reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(api.endpoints.register.matchFulfilled, storeToken);
   },
 });
+
+export const { clearRegisterToken } = registerSlice.actions;
 
 export default registerSlice.reducer;
 

@@ -7,10 +7,7 @@ import loginReducer from "../components/Login/LoginSlice";
 import registerReducer from "../components/Register/RegisterSlice";
 import userReducer from "../components/User/UserSlice";
 import libraryReducer from "../components/Library/LibrarySlice";
-
-
-
-
+import bookReducer from "../components/Book/BookSlice";
 
 const store = configureStore({
   reducer: {
@@ -19,7 +16,7 @@ const store = configureStore({
     register: registerReducer,
     user: userReducer,
     library: libraryReducer,
-    
+    book: bookReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),

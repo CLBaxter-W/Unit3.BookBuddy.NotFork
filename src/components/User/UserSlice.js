@@ -9,7 +9,6 @@ const userApi = api.injectEndpoints({
         method: "GET",
         responseHandler: (response) => response.text(),
       }),
-      providesTags: ["User"],
     }),
   }),
 });
