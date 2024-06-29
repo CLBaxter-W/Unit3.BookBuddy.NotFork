@@ -5,9 +5,8 @@ export default function BookRow({ newBook }) {
   return (
     <div className="book-card"onClick={() => 
         //TO DO - set selected book and go to page w/details
+
         console.log("You have selected Book:  ", newBook.id)}>
-{/* }}
-    > */}
       
       <div className="title">{newBook.title}</div>
 
@@ -22,6 +21,7 @@ export default function BookRow({ newBook }) {
       
     </div>
     
+
   );
 }
 

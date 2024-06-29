@@ -4,6 +4,8 @@ export default function BookDetails({ book }) {
   const navigate = useNavigate();
 
   return (
+
+
     <div className="books">
 
      
@@ -29,6 +31,7 @@ export default function BookDetails({ book }) {
       
 
       <p> Available: {book.available ? "Yes" : "No"}</p>
+
       <button
         type="submit"
         className="btn"

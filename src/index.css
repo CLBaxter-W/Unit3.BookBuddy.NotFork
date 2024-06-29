@@ -369,6 +369,23 @@ input[type="password"] {
   padding-bottom: 10vh;
 }
 
+.welcome1 {
+  position: relative;
+  display: flex;
+  margin-left: 850px;
+  margin-top: -50px;
+  width: auto;
+  height: auto;
+  border: 1px solid rgb(13, 13, 12);
+  border-radius: 10px;
+  font-family: raleway;
+  background-color: #f8f5f5;
+  z-index: 2;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10vh;
+}
+
 .loginError {
   margin: auto;
   color: rgb(22, 22, 122);
