@@ -8,7 +8,7 @@ export default function UserBookRow() {
         console.log("You have selected Book:  ", currentBook.id);
       }}
     >
-      <td>{currentBook.title}</td>
+      <td className="title">{currentBook.title}</td>
       <td>{currentBook.author}</td>
       <td>{currentBook.available ? "Available: Yes" : "Available:No"}</td>
       <td>

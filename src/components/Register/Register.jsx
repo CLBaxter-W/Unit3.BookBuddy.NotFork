@@ -38,76 +38,65 @@ export default function Register() {
   // TODO handle login errors
   return (
     <div>
-      <div className="reg1">
-
-        
-      <form onSubmit={submit}>
-
-        <div className="form-group">
-          <label>First Name</label>
-          <input
-            type="text"
-            className="form-control"
-            aria-describedby="firstNameHelp"
-            placeholder="Enter first name"
-            name="firstname"
-            onChange={updateForm}
-          />
-      
-        <div className="">
-          <label>Last Name</label>
-          <input
-            type="text"
-            className="form-control"
-            aria-describedby="lastNameHelp"
-            placeholder="Enter last name"
-            name="lastname"
-            onChange={updateForm}
-          />
-        
-        <div className="">
-          <label>Email</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Email@xxx.com"
-            name="email"
-            onChange={updateForm}
-          />
-
-       
-        <div className="">
-          <label>Password</label>
-          <input 
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            name="password"
-            onChange={updateForm}
-          />
+      <div className="form-group1">
+        <form onSubmit={submit}>
+          <div className="">
+            <label>First Name</label>
+            <input
+              type="text"
+              className="form-control"
+              aria-describedby="firstNameHelp"
+              placeholder="Enter first name"
+              name="firstname"
+              onChange={updateForm}
+            />
+          </div>
+          <div className="">
+            <label>Last Name</label>
+            <input
+              type="text"
+              className="form-control"
+              aria-describedby="lastNameHelp"
+              placeholder="Enter last name"
+              name="lastname"
+              onChange={updateForm}
+            />
+          </div>
+          <div className="">
+            <label>Email</label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Email@xxx.com"
+              name="email"
+              onChange={updateForm}
+            />
+          </div>
+          <div className="">
+            <label>Password</label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              name="password"
+              onChange={updateForm}
+            />
+          </div>
           <FaLock />
-                  </div>
-
-  {/* Button here must be "type="submit" so it correctly proceeds */}
-          {/* to the callback to register the new user*/}
-          <div className="form-submit">
-            <button type="submit" btn btn-primary change>Register</button>
-
+          <div>
+            {/* Button here must be "type="submit" so it correctly proceeds */}
+            {/* to the callback to register the new user*/}
+            <button type="submit" className="btn btn-primary change">
+              Register
+            </button>
             {error ? (
               <div className="loginError">
                 <br />
                 <h5>{error} - Please check your input and try again.</h5>
               </div>
             ) : null}
-      </div>
-        </div>
-        </div>
-        </div>
-        
-
-      
-      </form>
-
+          </div>
+        </form>
       </div>
     </div>
   );
