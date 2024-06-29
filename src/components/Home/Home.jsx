@@ -1,5 +1,6 @@
 export default function Home() {
   return (
+
     <div className="welcome1">
       <form>
         <div className="form-group">
@@ -25,6 +26,7 @@ export default function Home() {
           <h4>Thank you - Enjoy the library.</h4>
         </div>
       </form>
+
     </div>
   );
 }

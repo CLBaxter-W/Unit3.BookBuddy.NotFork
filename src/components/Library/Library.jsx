@@ -18,40 +18,43 @@ export default function Library() {
   };
 
   return (
-    <div className="welcome1">
-      <section>
-        <form onSubmit={onLoadClick}>
-          <div className="bookSearchContainer">
-            {/* TO DO ADD Search functionality */}
-            <button name="loadBooks">Load Book List</button>
-          </div>
-        </form>
 
-        {/* Create Headers for the list of books*/}
-        <div>
-          {/* <h1>Book List</h1> */}
-          <table>
-            <thead>
-              <tr>
-                <th colSpan="3">Book List</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                {/* <td>Title</td>
+    <section className="booksListContainer">
+      <form onSubmit={onLoadClick}>
+        <div className="bookSearchContainer">
+          
+          
+          <button className="loadBooks">Load Book List</button>
+        </div>
+      </form>
+
+      {/* Create Headers for the list of books*/}
+      <div className>
+        {/* <h1>Book List</h1> */}
+        <table>
+          <thead>
+            <tr>
+              {/* <th colSpan="3">Book List</th> */}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {/* <td>Title</td>
               <td>Author</td>
               <td>Available</td> */}
-              </tr>
+            </tr>
 
-              {/* Create Rows in the List of Books for each library Book*/}
-              {library &&
-                library.map((book) => {
-                  return <BookRow key={book.id} newBook={book} />;
-                })}
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </div>
+            {/* Create Rows in the List of Books for each library Book*/}
+            <div className="pp">
+            {library &&
+              library.map((book) => {
+                return <BookRow key={book.id} newBook={book} />;
+              })}
+              </div>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   );
 }

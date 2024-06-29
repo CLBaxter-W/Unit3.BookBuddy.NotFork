@@ -4,16 +4,36 @@ export default function BookDetails({ book }) {
   const navigate = useNavigate();
 
   return (
-    <div className="welcome1">
-      <h1>The Book</h1>
-      <p> {book.title}</p>
-      <p> {book.author}</p>
-      <p> {book.description}</p>
+
+
+    <div className="books">
+
+     
+
+      <div className="book.title">
+      <p1> {book.title}</p1>
+      </div>
+      <div className="book.author">
+      <p2> {book.author}</p2>
+      </div>
+      <div className="book.description">
+      <p3> {book.description}</p3>
+      </div>
+
+      {/* <h1>The Book</h1>
+      <p1> {book.title}</p1>
+      <p2> {book.author}</p2>
+      <p3> {book.description}</p3> */}
+      
       {/*<p> {book.coverimage}</p> */}
-      <img src={book.coverimage} alt={book.title} />
-      <p> {book.available ? "Available: Yes" : "Available: No"}</p>
+
+      <img src={book.coverimage} alt={book.title} className="img" />
+      
+
+      <p> Available: {book.available ? "Yes" : "No"}</p>
+
       <button
-        type="button"
+        type="submit"
         className="btn"
         onClick={() => navigate("/Library")}
       >

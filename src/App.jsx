@@ -7,6 +7,9 @@ import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import User from "./components/User/User.jsx";
 import Home from "./components/Home/Home.jsx";
+
+import "./index.css";
+
 import Protected from "./components/Shared/Protected";
 
 import NavBar from "./NavBar";
