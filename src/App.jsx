@@ -20,13 +20,11 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/Login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
-          {/*
+
           <Route path="/User" element={<Protected />}>
-            */}
-          <Route path="/User" element={<User />} />
-          {/*}
+            <Route path="/User" element={<User />} />
           </Route>
-          */}
+
           <Route path="/Library" element={<Library />} />
           <Route path="/Book/:id" element={<Book />}></Route>
           <Route path="/Logout" element={<Logout />} />

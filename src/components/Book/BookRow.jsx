@@ -12,7 +12,7 @@ export default function BookRow({ newBook }) {
     >
       <td>{newBook.title}</td>
       <td>{newBook.author}</td>
-      <td>{newBook.available ? "Yes" : "No"}</td>
+      <td>{newBook.available ? "Available: Yes" : "Available:No"}</td>
       <td>
         <Link to={`/Book/${newBook.id}`}>See Details</Link>
       </td>

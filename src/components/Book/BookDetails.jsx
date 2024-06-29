@@ -4,14 +4,14 @@ export default function BookDetails({ book }) {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="welcome1">
       <h1>The Book</h1>
       <p> {book.title}</p>
       <p> {book.author}</p>
       <p> {book.description}</p>
       {/*<p> {book.coverimage}</p> */}
       <img src={book.coverimage} alt={book.title} />
-      <p> {book.available ? "Yes" : "No"}</p>
+      <p> {book.available ? "Available: Yes" : "Available: No"}</p>
       <button
         type="button"
         className="btn"
