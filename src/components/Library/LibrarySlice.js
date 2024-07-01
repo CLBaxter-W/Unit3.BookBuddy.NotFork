@@ -7,7 +7,6 @@ const libraryApi = api.injectEndpoints({
       query: () => ({
         url: "books",
         method: "GET",
-        responseHandler: (response) => response.text(),
       }),
     }),
   }),
@@ -33,7 +32,7 @@ const librarySlice = createSlice({
     builder.addMatcher(
       api.endpoints.getLibrary.matchFulfilled,
       (state, { payload }) => {
-        return JSON.parse(payload);
+        return payload;
       }
     );
   },
