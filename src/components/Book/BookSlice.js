@@ -12,6 +12,17 @@ const bookApi = api.injectEndpoints({
         responseHandler: (response) => response.text(),
       }),
     }),
+    
+    // added for patch on books
+    patchAvailability: builder.mutation({
+      query: (id, availabilityChange) => ({
+        url: `/books/${id}`,
+        method: "PATCH",
+        body: availabilityChange,
+        responseHandler: (response) => response.text(),
+      }),
+    }), 
+
   }),
 });
 
@@ -43,4 +54,4 @@ export const selectSelectedBook = (state) => state.book.selectedBook;
 
 export default bookSlice.reducer;
 
-export const { useGetBookQuery } = bookApi;
+export const { useGetBookQuery, usePatchAvailabilityMutation } = bookApi;
