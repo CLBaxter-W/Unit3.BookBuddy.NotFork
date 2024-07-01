@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "./RegisterSlice";
-import { FaLock } from "react-icons/fa";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 export default function Register() {
   const [error, setError] = useState();
   const [registerUser] = useRegisterMutation();
@@ -72,17 +73,22 @@ export default function Register() {
               onChange={updateForm}
             />
           </div>
+
           <div className="">
             <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Password"
-              name="password"
-              onChange={updateForm}
-            />
+            <div className="input-icon">
+              <span className="input-group-text">
+                <i className="fas fa-lock"></i>
+              </span>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                name="password"
+                onChange={updateForm}
+              />
+            </div>
           </div>
-          <FaLock />
           <div>
             {/* Button here must be "type="submit" so it correctly proceeds */}
             {/* to the callback to register the new user*/}
