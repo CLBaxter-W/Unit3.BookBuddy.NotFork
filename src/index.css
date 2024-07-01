@@ -5,7 +5,6 @@
   background-image: url("./assets/old-books.jpg");
   position: fixed;
   overflow: hidden;
-
   min-height: 500px;
 
   /* Center and scale the image nicely */
@@ -20,7 +19,7 @@
 /* Position the navbar container inside the image */
 .cont {
   position: absolute;
-  margin: 20px;
+  margin: 0px;
   width: auto;
 }
 
@@ -285,8 +284,8 @@ flex-wrap: ; */
 
 .form-group1 {
   position: relative;
-  margin-left: 59vw;
-  margin-top: -420px;
+  margin-left: 1000px;
+  margin-top: -340px;
   width: 300px;
   height: auto;
   align-items: center;
@@ -393,7 +392,7 @@ input[type="password"] {
 
 /***** end work arounds. ****/
 
-/* 
+
 .input-icon {
   position: relative;
   font-family: 20px;
@@ -415,4 +414,4 @@ background-color: #1539e9;
 
 .input-icon input {
   padding-left: 30px;
-} */
+}

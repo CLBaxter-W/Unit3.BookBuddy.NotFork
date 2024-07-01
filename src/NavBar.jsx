@@ -38,9 +38,6 @@ export default function NavBar() {
             </div>
               
 
-            <div className="nav-item">
-              <Link to="/search">search</Link>
-            </div>v
 
 {/* <div className="Search">
   <form class="form-inline">
