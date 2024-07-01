@@ -74,6 +74,8 @@ export default function Register() {
           </div>
           <div className="">
             <label>Password</label>
+            {/* <div className="input-icon">
+            <i className="FaLock"></i> */}
             <input
               type="password"
               className="form-control"
@@ -82,7 +84,7 @@ export default function Register() {
               onChange={updateForm}
             />
           </div>
-          <FaLock />
+          {/* </div> */}
           <div>
             {/* Button here must be "type="submit" so it correctly proceeds */}
             {/* to the callback to register the new user*/}
