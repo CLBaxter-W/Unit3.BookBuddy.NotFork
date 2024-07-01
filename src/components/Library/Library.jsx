@@ -2,30 +2,34 @@
 
 import BookRow from "../Book/BookRow";
 
-
 import { useGetLibraryQuery } from "./LibrarySlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Library() {
-  const [library, setLibrary] = useState(null);
-  const [filteredLibrary, setFilteredLibrary] = useState(null);
+  const [library, setLibrary] = useState([]);
+  const [filteredLibrary, setFilteredLibrary] = useState([]);
   const [filterForm, setFilterForm] = useState({
     filterInput: "",
     filterType: "author",
   });
 
-  const { data, isSuccess } = useGetLibraryQuery();
+  const { data, isLoading, isSuccess } = useGetLibraryQuery();
 
-  const onLoadClick = (e) => {
-    e.preventDefault();
-
+  useEffect(() => {
     if (isSuccess) {
-      setLibrary(JSON.parse(data).books);
+      setLibrary(data.books);
 
       // for use in filtering displayed book list
       setFilteredLibrary(library);
     }
-  };
+  }, [isSuccess]);
+
+  console.log("library", library);
+  console.log(data);
+
+  if (isLoading) {
+    return <p> Loading .... </p>;
+  }
 
   const updateForm = (e) => {
     setFilterForm((prev) => ({
@@ -84,17 +88,10 @@ export default function Library() {
       // Filter is empty, reload whole list
       setFilteredLibrary(library);
     }
-
-    console.log(`matches to filter: ${filteredLibrary}`);
   };
 
   return (
     <section className="booksListContainer">
-      <form onSubmit={onLoadClick}>
-        <div className="bookSearchContainer">
-          <button className="loadBooks">Load Book List</button>
-        </div>
-      </form>
       <form onSubmit={onFilterClick}>
         <div className="filterBooks">
           <label>Filter:</label>
@@ -122,7 +119,8 @@ export default function Library() {
       <div>
         {/* Create Rows in the List of Books for each library Book*/}
         <div className="pp">
-          {filteredLibrary &&
+          {isSuccess &&
+            //library.map((book) => {
             filteredLibrary.map((book) => {
               return <BookRow key={book.id} newBook={book} />;
             })}

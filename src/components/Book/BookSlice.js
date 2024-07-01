@@ -9,7 +9,7 @@ const bookApi = api.injectEndpoints({
       query: (id) => ({
         url: `/books/${id}`,
         method: "GET",
-        responseHandler: (response) => response.text(),
+        //responseHandler: (response) => response.text(),
       }),
     }),
     
@@ -18,8 +18,7 @@ const bookApi = api.injectEndpoints({
       query: (id, availabilityChange) => ({
         url: `/books/${id}`,
         method: "PATCH",
-        body: availabilityChange,
-        responseHandler: (response) => response.text(),
+        body: JSON.stringify({availability: availabilityChange}),
       }),
     }), 
 
@@ -43,7 +42,7 @@ const bookSlice = createSlice({
     builder.addMatcher(
       api.endpoints.getLibrary.matchFulfilled,
       (state, { payload }) => {
-        return JSON.parse(payload);
+        return payload;
       }
     );
   },
