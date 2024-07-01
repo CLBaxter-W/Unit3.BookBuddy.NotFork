@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import UserBookRow from "./UserBookRow";
+import BookRow from "./UserBookRow";
 
 export default function UserDetails({ userProfile }) {
   const navigate = useNavigate();
@@ -31,11 +31,11 @@ export default function UserDetails({ userProfile }) {
           <label>Current Books:</label>
           {/* <p> {userProfile.books}</p> */}
 
-         {/* books that are currently checked out*/}
+          {/* books that are currently checked out*/}
           <div className="pp">
             {userProfile.books &&
               userProfile.books.map((book) => {
-                return <UserBookRow key={book.id} newBook={book} />;
+                return <BookRow key={book.id} newBook={book} />;
               })}
           </div>
         </div>

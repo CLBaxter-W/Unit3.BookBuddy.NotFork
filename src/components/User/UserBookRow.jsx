@@ -1,21 +1,15 @@
 import React from "react";
 
-export default function UserBookRow() {
+export default function UserBookRow({ newBook }) {
+  // TODO - all the checkin/checkout calls
   return (
-    <div className="book-card">
-      <div className="title">{newBook.title}</div>
-      <div className="author">{newBook.author}</div>
-      <div className="YN">Available: {newBook.available ? "Yes" : "No"}</div>
-      <div id="details" className="details">
-        <Link to={`/Book/${newBook.id}`}>See Details</Link>
-      </div>
-
+    <div className="userBookRowButtons">
       <button
         type="button"
-        className="btn"
+        className="button"
         onClick={() =>
           console.log(
-            `You would like to checkout ${currentBook.title} by ${currentBook.author}`
+            `You would like to checkout ${newBook.title} by ${newBook.author}`
           )
         }
       >
@@ -23,10 +17,10 @@ export default function UserBookRow() {
       </button>
       <button
         type="button"
-        className="btn"
+        className="button"
         onClick={() =>
           console.log(
-            `You would like to check in ${currentBook.title} by ${currentBook.author}`
+            `You would like to check in ${newBook.title} by ${newBook.author}`
           )
         }
       >
