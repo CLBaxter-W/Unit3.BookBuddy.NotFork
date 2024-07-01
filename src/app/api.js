@@ -11,12 +11,6 @@ export const api = createApi({
       const token =
         getState().register.token || getState().login.token || sessionToken;
 
-      console.log(`Register Token: ${getState().register.token}`);
-      console.log(`Login Token: ${getState().login.token}`);
-      console.log(`Session Token: ${sessionToken}`);
-
-      console.log(` prepare headers Token: ${token}`);
-
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
       }
