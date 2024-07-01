@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import UserBookRow from "./UserBookRow";
 
 export default function UserDetails({ userProfile }) {
   const navigate = useNavigate();
@@ -27,49 +28,33 @@ export default function UserDetails({ userProfile }) {
         </div>
 
         <div className="form-group">
-          <label>Books:</label>
+          <label>Current Books:</label>
           {/* <p> {userProfile.books}</p> */}
-          <div>
-            {/* <h1>Book List</h1> */}
-            <table>
-              <thead>
-                <tr>
-                  <th colSpan="3">Book List</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  {/* <td>Title</td>
-              <td>Author</td>
-              <td>Available</td> */}
-                </tr>
 
-                {/* Create Rows in the List of checked out books for each library Book*/}
-                {/*userProfile.books &&
-                  userProfile.books.map((book) => {
-                    return <UserBookRow key={book.id} newBook={book} />;
-                  })*/}
-              </tbody>
-            </table>
+         {/* books that are currently checked out*/}
+          <div className="pp">
+            {userProfile.books &&
+              userProfile.books.map((book) => {
+                return <UserBookRow key={book.id} newBook={book} />;
+              })}
           </div>
-          <br />
         </div>
-
-        <button
-          type="button"
-          className="btn"
-          onClick={() => navigate("/Login")}
-        >
-          Back to Login
-        </button>
-        <button
-          type="button"
-          className="btn"
-          onClick={() => navigate("/Logout")}
-        >
-          Logout
-        </button>
-        {/*TODO checkin/checkout buttons */}
+        <div>
+          <button
+            type="button"
+            className="btn"
+            onClick={() => navigate("/Login")}
+          >
+            Back to Login
+          </button>
+          <button
+            type="button"
+            className="btn"
+            onClick={() => navigate("/Logout")}
+          >
+            Logout
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -2,18 +2,14 @@ import React from "react";
 
 export default function UserBookRow() {
   return (
-    <tr
-      onClick={() => {
-        //TO DO - set selected book and go to page w/details
-        console.log("You have selected Book:  ", currentBook.id);
-      }}
-    >
-      <td className="title">{currentBook.title}</td>
-      <td>{currentBook.author}</td>
-      <td>{currentBook.available ? "Available: Yes" : "Available:No"}</td>
-      <td>
-        <Link to={`/Book/${currentBook.id}`}>See Details</Link>
-      </td>
+    <div className="book-card">
+      <div className="title">{newBook.title}</div>
+      <div className="author">{newBook.author}</div>
+      <div className="YN">Available: {newBook.available ? "Yes" : "No"}</div>
+      <div id="details" className="details">
+        <Link to={`/Book/${newBook.id}`}>See Details</Link>
+      </div>
+
       <button
         type="button"
         className="btn"
@@ -36,6 +32,6 @@ export default function UserBookRow() {
       >
         Check In Book
       </button>
-    </tr>
+    </div>
   );
 }
