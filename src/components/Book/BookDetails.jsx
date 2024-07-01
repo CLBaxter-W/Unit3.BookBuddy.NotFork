@@ -1,35 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 export default function BookDetails({ book }) {
   const navigate = useNavigate();
 
   return (
-
-
     <div className="books">
-
-     
-
       <div className="book.title">
-      <p1> {book.title}</p1>
+        <p className="p1"> {book.title}</p>
       </div>
       <div className="book.author">
-      <p2> {book.author}</p2>
+        <p className="p2"> {book.author}</p>
       </div>
       <div className="book.description">
-      <p3> {book.description}</p3>
+        <p className="p3"> {book.description}</p>
       </div>
-
-      {/* <h1>The Book</h1>
-      <p1> {book.title}</p1>
-      <p2> {book.author}</p2>
-      <p3> {book.description}</p3> */}
-      
-      {/*<p> {book.coverimage}</p> */}
-
       <img src={book.coverimage} alt={book.title} className="img" />
-      
-
       <p> Available: {book.available ? "Yes" : "No"}</p>
 
       <button

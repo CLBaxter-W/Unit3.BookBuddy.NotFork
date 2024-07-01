@@ -12,6 +12,9 @@ export default function Logout() {
 
   const dispatch = useDispatch();
   dispatch(clearRegisterToken());
+
+  // TODO - solve this stack trace problem
+  console.log("Error Clearing LOGIN Token in logout");
   dispatch(clearLoginToken());
 
   return (
