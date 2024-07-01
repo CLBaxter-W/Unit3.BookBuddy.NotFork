@@ -17,8 +17,8 @@
   position: relative;
   z-index: 0;
 }
-
-Position the navbar container inside the image */ .cont {
+/* Position the navbar container inside the image */
+.cont {
   position: absolute;
   margin: 20px;
   width: auto;
@@ -75,7 +75,7 @@ Position the navbar container inside the image */ .cont {
 /* sign up */
 .reg1 {
   position: relative;
-  margin-left: 1000px;
+  margin-left: 59vw;
   margin-top: -400px;
   width: 300px;
   height: 350px;
@@ -124,6 +124,22 @@ input[type="email"] {
   width: 200px;
   height: 100px;
   margin-top: 00px;
+  font-size: 20px;
+  color: white;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* added to accommodate filter buttons */
+.filterBooks {
+  display: grid;
+  background-color: rgb(158, 232, 158);
+  border-radius: 10px;
+  width: 20vw;
+
+  height: auto;
+  margin-top: -75px;
+  margin-left: 225px;
   font-size: 20px;
   color: white;
   align-items: center;
@@ -269,7 +285,7 @@ flex-wrap: ; */
 
 .form-group1 {
   position: relative;
-  margin-left: 1000px;
+  margin-left: 59vw;
   margin-top: -420px;
   width: 300px;
   height: auto;
@@ -313,24 +329,7 @@ input[type="password"] {
 /* login end */
 
 /********************************/
-/*my work arounds. */
-
-.reg1 {
-  position: relative;
-  display: flex;
-  margin-left: 850px;
-  margin-top: -150px;
-  width: 300px;
-  height: auto;
-  border: 1px solid rgb(13, 13, 12);
-  border-radius: 10px;
-  font-family: raleway;
-  background-color: #f8f5f5;
-  z-index: 2;
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 10vh;
-}
+/* my work arounds. */
 
 .login1 {
   position: relative;
@@ -352,7 +351,7 @@ input[type="password"] {
 .user1 {
   position: relative;
   display: flex;
-  margin-left: 850px;
+  margin-left: 59vw;
   margin-top: -50px;
   width: 300px;
   height: auto;
