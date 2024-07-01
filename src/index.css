@@ -216,7 +216,7 @@ p3 {
   /* display: flex;
 flex-wrap: ; */
   width: 220px;
-  height: 200px;
+  height: fit-content;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 8px rgba(28, 16, 16, 0.5);
