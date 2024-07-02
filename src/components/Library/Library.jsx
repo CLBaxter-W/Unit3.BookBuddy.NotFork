@@ -9,7 +9,7 @@ export default function Library() {
   const [library, setLibrary] = useState([]);
   const [filteredLibrary, setFilteredLibrary] = useState([]);
   const [filterForm, setFilterForm] = useState({
-    filterInput: "",
+    filterInput: "*",
     filterType: "author",
   });
 
@@ -20,15 +20,12 @@ export default function Library() {
       setLibrary(data.books);
 
       // for use in filtering displayed book list
-      setFilteredLibrary(library);
+      setFilteredLibrary(data.books);
     }
   }, [isSuccess]);
 
-  console.log("library", library);
-  console.log(data);
-
   if (isLoading) {
-    return <p> Loading .... </p>;
+    return <div className="loader"></div>;
   }
 
   const updateForm = (e) => {
@@ -41,52 +38,48 @@ export default function Library() {
   const onFilterClick = (e) => {
     e.preventDefault();
 
-    // Create the search filter from the input field with a simple Regular Expression
-    const filterInput = filterForm.filterInput;
-    const filterType = filterForm.filterType;
+    const regExp = new RegExp(
+      filterForm.filterInput === ""
+        ? ``
+        : `.*${filterForm.filterInput.toLowerCase()}*`,
+      "i"
+    );
 
-    if (filterType === "author" && filterInput !== "") {
-      //TODo - why do I need the '.' at the beginning - I get an error if its not there
-      const regExp = new RegExp(`.*${filterInput.toLowerCase()}*`);
+    if (library) {
+      switch (filterForm.filterType) {
+        case "author":
+          // Filter the main library and create matching array with any books that match
+          setFilteredLibrary(
+            library.filter((searchValue) => searchValue.author.match(regExp))
+          );
+          break;
 
-      // Filter the main library and create matching array with any books that match
-      setFilteredLibrary(
-        library &&
-          library.filter((searchValue) =>
-            searchValue.author.toLowerCase().match(regExp)
-          )
-      );
-    } else if (filterType === "title" && filterInput !== "") {
-      //TODo - why do I need the '.' at the beginning - I get an error if its not there
-      const regExp = new RegExp(`.*${filterInput.toLowerCase()}*`);
+        case "title":
+          setFilteredLibrary(
+            library.filter((searchValue) => searchValue.title.match(regExp))
+          );
+          break;
 
-      // Filter the main library and create matching array with any books that match
-      setFilteredLibrary(
-        library &&
-          library.filter((searchValue) =>
-            searchValue.title.toLowerCase().match(regExp)
-          )
-      );
-    } // TODO - get filter on Available working
-    else if (filterType === "availableYes") {
-      // Filter the main library and create matching array with any books that match
-      setFilteredLibrary(
-        library &&
-          library.filter((searchValue) => {
-            return searchValue.available === true;
-          })
-      );
-    } else if (filterType === "availableNo") {
-      // Filter the main library and create matching array with any books that match
-      setFilteredLibrary(
-        library &&
-          library.filter((searchValue) => {
-            return searchValue.available === false;
-          })
-      );
-    } else {
-      // Filter is empty, reload whole list
-      setFilteredLibrary(library);
+        case "availableYes":
+          setFilteredLibrary(
+            library &&
+              library.filter((searchValue) => {
+                return searchValue.available === true;
+              })
+          );
+          break;
+        case "availableNo":
+          setFilteredLibrary(
+            library &&
+              library.filter((searchValue) => {
+                return searchValue.available === false;
+              })
+          );
+          break;
+        default:
+          // Filter is empty, reload whole list
+          setFilteredLibrary(library);
+      }
     }
   };
 
@@ -120,7 +113,6 @@ export default function Library() {
         {/* Create Rows in the List of Books for each library Book*/}
         <div className="pp">
           {isSuccess &&
-            //library.map((book) => {
             filteredLibrary.map((book) => {
               return <BookRow key={book.id} newBook={book} />;
             })}
