@@ -26,7 +26,7 @@ export default function Book() {
   }, [isSuccess]);
 
   if (isLoading) {
-    return <p> Loading .... </p>;
+    return <div className="loader"></div>;
   }
 
   //if (theBook && theBook.isSuccess) {
