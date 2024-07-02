@@ -1,25 +1,15 @@
 import React from "react";
 
-export default function UserBookRow() {
+export default function UserBookRow({ newBook }) {
+  // TODO - all the checkin/checkout calls
   return (
-    <tr
-      onClick={() => {
-        //TO DO - set selected book and go to page w/details
-        console.log("You have selected Book:  ", currentBook.id);
-      }}
-    >
-      <td className="title">{currentBook.title}</td>
-      <td>{currentBook.author}</td>
-      <td>{currentBook.available ? "Available: Yes" : "Available:No"}</td>
-      <td>
-        <Link to={`/Book/${currentBook.id}`}>See Details</Link>
-      </td>
+    <div className="userBookRowButtons">
       <button
         type="button"
-        className="btn"
+        className="button"
         onClick={() =>
           console.log(
-            `You would like to checkout ${currentBook.title} by ${currentBook.author}`
+            `You would like to checkout ${newBook.title} by ${newBook.author}`
           )
         }
       >
@@ -27,15 +17,15 @@ export default function UserBookRow() {
       </button>
       <button
         type="button"
-        className="btn"
+        className="button"
         onClick={() =>
           console.log(
-            `You would like to check in ${currentBook.title} by ${currentBook.author}`
+            `You would like to check in ${newBook.title} by ${newBook.author}`
           )
         }
       >
         Check In Book
       </button>
-    </tr>
+    </div>
   );
 }

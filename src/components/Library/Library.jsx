@@ -3,28 +3,30 @@
 import BookRow from "../Book/BookRow";
 
 import { useGetLibraryQuery } from "./LibrarySlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Library() {
-  const [library, setLibrary] = useState(null);
-  const [filteredLibrary, setFilteredLibrary] = useState(null);
+  const [library, setLibrary] = useState([]);
+  const [filteredLibrary, setFilteredLibrary] = useState([]);
   const [filterForm, setFilterForm] = useState({
-    filterInput: "",
+    filterInput: "*",
     filterType: "author",
   });
 
-  const { data, isSuccess } = useGetLibraryQuery();
+  const { data, isLoading, isSuccess } = useGetLibraryQuery();
 
-  const onLoadClick = (e) => {
-    e.preventDefault();
-
+  useEffect(() => {
     if (isSuccess) {
-      setLibrary(JSON.parse(data).books);
+      setLibrary(data.books);
 
       // for use in filtering displayed book list
-      setFilteredLibrary(library);
+      setFilteredLibrary(data.books);
     }
-  };
+  }, [isSuccess]);
+
+  if (isLoading) {
+    return <div className="loader"></div>;
+  }
 
   const updateForm = (e) => {
     setFilterForm((prev) => ({
@@ -36,64 +38,53 @@ export default function Library() {
   const onFilterClick = (e) => {
     e.preventDefault();
 
-    // Create the search filter from the input field with a simple Regular Expression
-    const filterInput = filterForm.filterInput;
-    const filterType = filterForm.filterType;
+    const regExp = new RegExp(
+      filterForm.filterInput === ""
+        ? ``
+        : `.*${filterForm.filterInput.toLowerCase()}*`,
+      "i"
+    );
 
-    if (filterType === "author" && filterInput !== "") {
-      //TODo - why do I need the '.' at the beginning - I get an error if its not there
-      const regExp = new RegExp(`.*${filterInput.toLowerCase()}*`);
+    if (library) {
+      switch (filterForm.filterType) {
+        case "author":
+          // Filter the main library and create matching array with any books that match
+          setFilteredLibrary(
+            library.filter((searchValue) => searchValue.author.match(regExp))
+          );
+          break;
 
-      // Filter the main library and create matching array with any books that match
-      setFilteredLibrary(
-        library &&
-          library.filter((searchValue) =>
-            searchValue.author.toLowerCase().match(regExp)
-          )
-      );
-    } else if (filterType === "title" && filterInput !== "") {
-      //TODo - why do I need the '.' at the beginning - I get an error if its not there
-      const regExp = new RegExp(`.*${filterInput.toLowerCase()}*`);
+        case "title":
+          setFilteredLibrary(
+            library.filter((searchValue) => searchValue.title.match(regExp))
+          );
+          break;
 
-      // Filter the main library and create matching array with any books that match
-      setFilteredLibrary(
-        library &&
-          library.filter((searchValue) =>
-            searchValue.title.toLowerCase().match(regExp)
-          )
-      );
-    } // TODO - get filter on Available working
-    else if (filterType === "availableYes") {
-      // Filter the main library and create matching array with any books that match
-      setFilteredLibrary(
-        library &&
-          library.filter((searchValue) => {
-            return searchValue.available === true;
-          })
-      );
-    } else if (filterType === "availableNo") {
-      // Filter the main library and create matching array with any books that match
-      setFilteredLibrary(
-        library &&
-          library.filter((searchValue) => {
-            return searchValue.available === false;
-          })
-      );
-    } else {
-      // Filter is empty, reload whole list
-      setFilteredLibrary(library);
+        case "availableYes":
+          setFilteredLibrary(
+            library &&
+              library.filter((searchValue) => {
+                return searchValue.available === true;
+              })
+          );
+          break;
+        case "availableNo":
+          setFilteredLibrary(
+            library &&
+              library.filter((searchValue) => {
+                return searchValue.available === false;
+              })
+          );
+          break;
+        default:
+          // Filter is empty, reload whole list
+          setFilteredLibrary(library);
+      }
     }
-
-    console.log(`matches to filter: ${filteredLibrary}`);
   };
 
   return (
     <section className="booksListContainer">
-      <form onSubmit={onLoadClick}>
-        <div className="bookSearchContainer">
-          <button className="loadBooks">Load Book List</button>
-        </div>
-      </form>
       <form onSubmit={onFilterClick}>
         <div className="filterBooks">
           <label>Filter:</label>
@@ -121,7 +112,7 @@ export default function Library() {
       <div>
         {/* Create Rows in the List of Books for each library Book*/}
         <div className="pp">
-          {filteredLibrary &&
+          {isSuccess &&
             filteredLibrary.map((book) => {
               return <BookRow key={book.id} newBook={book} />;
             })}

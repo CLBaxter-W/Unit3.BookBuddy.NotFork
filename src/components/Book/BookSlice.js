@@ -9,9 +9,19 @@ const bookApi = api.injectEndpoints({
       query: (id) => ({
         url: `/books/${id}`,
         method: "GET",
-        responseHandler: (response) => response.text(),
+        //responseHandler: (response) => response.text(),
       }),
     }),
+    
+    // added for patch on books
+    patchAvailability: builder.mutation({
+      query: (id, availabilityChange) => ({
+        url: `/books/${id}`,
+        method: "PATCH",
+        body: JSON.stringify({availability: availabilityChange}),
+      }),
+    }), 
+
   }),
 });
 
@@ -32,7 +42,7 @@ const bookSlice = createSlice({
     builder.addMatcher(
       api.endpoints.getLibrary.matchFulfilled,
       (state, { payload }) => {
-        return JSON.parse(payload);
+        return payload;
       }
     );
   },
@@ -43,4 +53,4 @@ export const selectSelectedBook = (state) => state.book.selectedBook;
 
 export default bookSlice.reducer;
 
-export const { useGetBookQuery } = bookApi;
+export const { useGetBookQuery, usePatchAvailabilityMutation } = bookApi;
