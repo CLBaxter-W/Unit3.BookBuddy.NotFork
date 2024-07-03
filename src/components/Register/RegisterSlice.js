@@ -16,8 +16,6 @@ const registerApi = api.injectEndpoints({
 const storeToken = (state, { payload }) => {
   state.token = payload.token;
   window.sessionStorage.setItem("Token", payload.token);
-
-  console.log(`storeToken Register : ${state.token}`);
 };
 
 const registerSlice = createSlice({
@@ -26,7 +24,6 @@ const registerSlice = createSlice({
   reducers: {
     clearRegisterToken: (state) => {
       state.token = null;
-      console.log(`clearRegisterToken: ${state.token}`);
     },
   },
   extraReducers: (builder) => {

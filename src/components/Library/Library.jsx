@@ -9,7 +9,7 @@ export default function Library() {
   const [library, setLibrary] = useState([]);
   const [filteredLibrary, setFilteredLibrary] = useState([]);
   const [filterForm, setFilterForm] = useState({
-    filterInput: "*",
+    filterInput: "a",
     filterType: "author",
   });
 
@@ -40,7 +40,7 @@ export default function Library() {
 
     const regExp = new RegExp(
       filterForm.filterInput === ""
-        ? ``
+        ? `*[a-z]*`
         : `.*${filterForm.filterInput.toLowerCase()}*`,
       "i"
     );
@@ -88,12 +88,17 @@ export default function Library() {
       <form onSubmit={onFilterClick}>
         <div className="filterBooks">
           <label>Filter:</label>
-          <select name="filterType" id="bookFilter" onChange={updateForm}>
+          <select
+            name="filterType"
+            id="bookFilter"
+            className="selectFilter"
+            onChange={updateForm}
+          >
             <option value="author"> by Author</option>
             <option value="title"> by Title</option>
             <optgroup label="By Availability">
-              <option value="availableYes">Yes</option>
-              <option value="availableNo">No</option>
+              <option value="availableYes">Status: Available</option>
+              <option value="availableNo">Status: Checked Out</option>
             </optgroup>
           </select>
           <input

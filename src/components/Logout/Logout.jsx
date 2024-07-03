@@ -3,11 +3,8 @@ import { clearLoginToken } from "../Login/LoginSlice";
 import { clearRegisterToken } from "../Register/RegisterSlice";
 
 export default function Logout() {
-  console.log("Logging Out");
-
   if (window.sessionStorage.getItem("Token")) {
     window.sessionStorage.removeItem("Token");
-    console.log("clearing session token");
   }
 
   const dispatch = useDispatch();

@@ -21,7 +21,6 @@ const librarySlice = createSlice({
 
   reducers: {
     setBookList: (state, { payload }) => {
-      console.log("setBookList Reducer - payload: ", payload.books);
 
       // TO DO correct way to set array - this is not the correct way to set the array, it shares handle to content
       state.bookList = payload.books;

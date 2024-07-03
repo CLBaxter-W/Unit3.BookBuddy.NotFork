@@ -6,18 +6,19 @@ import { useEffect, useState } from "react";
 export default function User() {
   const [user, setUser] = useState([]);
 
-  console.log("In User");
-
   const { data, isSuccess, refetch } = useGetUserQuery();
 
   useEffect(() => {
     if (isSuccess) {
       setUser(JSON.parse(data));
 
-      // TODO - when should refetch run
-      refetch();
+      //     // TODO - when should refetch run
+      //     refetch();
     }
   }, [isSuccess]);
+
+  console.log(data, `data end user`);
+  console.log(user, `user`);
 
   return (
     <div>
