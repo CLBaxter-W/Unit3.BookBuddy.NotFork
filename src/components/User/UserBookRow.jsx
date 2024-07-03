@@ -27,7 +27,10 @@ export default function UserBookRow({ newBook }) {
       let success = false;
 
       // Using the book id, reverse its availability
-      success = await changeAvailability(newBook.id, !newBook.available);
+      success = await changeAvailability(
+        newBook.id,
+        !newBook.available
+      ).unwrap();
 
       if (success) {
         console.log("Success");

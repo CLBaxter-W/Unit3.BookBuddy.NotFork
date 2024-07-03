@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import BookRow from "./UserBookRow";
+//import BookRow from "./UserBookRow";
+import UserBookList from "./UserBookList";
 
 export default function UserDetails({ userProfile }) {
   const navigate = useNavigate();
@@ -31,10 +32,7 @@ export default function UserDetails({ userProfile }) {
 
           {/* books that are currently checked out*/}
           <div className="">
-            {userProfile.books &&
-              userProfile.books.map((book) => {
-                return <BookRow key={book.id} newBook={book} />;
-              })}
+            {userProfile.books && <UserBookList bookList={userProfile.books} />}
           </div>
         </div>
         <div>
