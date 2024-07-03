@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 export default function User() {
   const [user, setUser] = useState([]);
 
-  console.log("In User");
-
   const { data, isSuccess, refetch } = useGetUserQuery();
 
   useEffect(() => {

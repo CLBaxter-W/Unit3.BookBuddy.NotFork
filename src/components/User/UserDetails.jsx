@@ -4,12 +4,10 @@ import BookRow from "./UserBookRow";
 export default function UserDetails({ userProfile }) {
   const navigate = useNavigate();
 
-  console.log("UserDetails");
-
   return (
     <div className="user1">
       <form>
-        <h3>User Details1</h3>
+        <h3>User Details</h3>
         <div className="">
           <label>First Name: </label>
           <label>{` ${userProfile.firstname}`}</label>

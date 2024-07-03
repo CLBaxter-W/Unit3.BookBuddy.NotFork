@@ -16,8 +16,6 @@ const loginApi = api.injectEndpoints({
 const storeToken = (state, { payload }) => {
   state.token = payload.token;
   window.sessionStorage.setItem("Token", payload.token);
-
-  console.log(`storeToken Login : ${state.token}`);
 };
 
 const loginSlice = createSlice({
@@ -26,7 +24,6 @@ const loginSlice = createSlice({
   reducers: {
     clearLoginToken: (state) => {
       state.token = null;
-      console.log(`clearLoginToken: ${state.token}`);
     },
   },
   extraReducers: (builder) => {

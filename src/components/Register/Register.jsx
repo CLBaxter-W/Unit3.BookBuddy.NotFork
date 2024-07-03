@@ -31,7 +31,6 @@ export default function Register() {
         navigate(`/User`);
       }
     } catch (error) {
-      console.log(error);
       setError(error.data.message);
     }
   };
@@ -77,17 +76,17 @@ export default function Register() {
           <div className="">
             <label>Password</label>
             {/* <div className="input-icon"> */}
-              {/* <span className="input-group-text">
+            {/* <span className="input-group-text">
                 <i className="fas fa-lock"></i> */}
-              {/* </span> */}
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                name="password"
-                onChange={updateForm}
-              />
-            </div>
+            {/* </span> */}
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              name="password"
+              onChange={updateForm}
+            />
+          </div>
           {/* </div> */}
           <div>
             {/* Button here must be "type="submit" so it correctly proceeds */}

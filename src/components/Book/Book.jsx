@@ -18,9 +18,6 @@ export default function Book() {
     if (isSuccess) {
       setTheBook(data.book);
 
-      console.log("Book", data);
-      console.log(theBook);
-
       refetch();
     }
   }, [isSuccess]);

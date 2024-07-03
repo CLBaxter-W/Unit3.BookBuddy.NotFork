@@ -9,8 +9,6 @@ export default function Protected() {
       window.sessionStorage.getItem("Token")
   );
 
-  console.log(`Protected Token: ${token}`);
-
   if (!token) {
     return <Navigate to="/" />;
   }

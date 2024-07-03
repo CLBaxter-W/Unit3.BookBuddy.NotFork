@@ -32,7 +32,6 @@ const bookSlice = createSlice({
 
   reducers: {
     setBook: (state, { payload }) => {
-      console.log("setBook Reducer - payload: ", payload.book);
       state.selectedBook = payload.book;
     },
   },
