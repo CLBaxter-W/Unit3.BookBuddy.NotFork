@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import React from "react";
 
 export default function BookDetails({ book }) {
   const navigate = useNavigate();
@@ -16,7 +15,7 @@ export default function BookDetails({ book }) {
         <p className="p3"> {book.description}</p>
       </div>
       <img src={book.coverimage} alt={book.title} className="img" />
-      <p> Available: {book.available ? "Yes" : "No"}</p>
+      <p> Status: {book.available ? "Available" : "Checked Out"}</p>
 
       <button
         type="submit"

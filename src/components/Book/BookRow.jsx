@@ -11,7 +11,7 @@ export default function BookRow({ newBook }) {
     <div className="book-card">
       <div className="title">{newBook.title}</div>
       <div className="author">{newBook.author}</div>
-      <div className="YN">Available: {newBook.available ? "Yes" : "No"}</div>
+      <div className="YN">Status: {newBook.available ? "Available" : "Checked Out"}</div>
       <div className="pp">
         {sessionToken && <UserBookRow key={newBook.id} newBook={newBook} />}
       </div>

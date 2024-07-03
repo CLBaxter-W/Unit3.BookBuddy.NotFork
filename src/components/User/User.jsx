@@ -11,6 +11,7 @@ export default function User() {
   const { data, isSuccess, refetch } = useGetUserQuery();
 
   useEffect(() => {
+
     if (isSuccess) {
       setUser(JSON.parse(data));
 
