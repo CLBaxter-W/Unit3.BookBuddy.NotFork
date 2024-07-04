@@ -17,10 +17,15 @@ export default function UserBookList({ bookList }) {
             <td>Author</td>
             <td>CheckIn</td>
           </tr>
-          {bookList &&
+          {bookList && bookList.length > 0 ? (
             bookList.map((book) => {
               return <UserBookListRow key={book.id} newBook={book} />;
-            })}
+            })
+          ) : (
+            <tr>
+              <td colSpan="3">No Books Currently Reserved</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

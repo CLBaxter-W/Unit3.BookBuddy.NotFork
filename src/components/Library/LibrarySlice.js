@@ -38,6 +38,7 @@ const librarySlice = createSlice({
 });
 
 export const { setBookList } = librarySlice.actions;
+
 export const selectBookList = (state) => state.book.bookList;
 
 export default librarySlice.reducer;

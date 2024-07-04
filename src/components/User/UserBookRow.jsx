@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { usePatchAvailabilityMutation } from "../Book/BookSlice";
 import { useDeleteReservationMutation } from "./UserReserveSlice";
 
@@ -7,6 +8,7 @@ export default function UserBookRow({ newBook }) {
 
   const [checkBookOut] = usePatchAvailabilityMutation();
   const [checkBookIn] = useDeleteReservationMutation();
+  const navigate = useNavigate();
 
   // We need 2 different kinds of calls for availability management
   // IF the book is being checked out, we call PATCH /books/:bookId - the api handles
@@ -22,18 +24,16 @@ export default function UserBookRow({ newBook }) {
   const setBookAvailability = async (e) => {
     e.preventDefault();
 
-    console.log(
-      `You would like to ${
-        newBook.available ? "Check Book Out" : "Check Book In"
-      } ${newBook.title} by ${newBook.author}`
-    );
-
     try {
       let success = false;
 
       if (newBook.available) {
         // Using the book id, it checks out the book
         success = await checkBookOut(newBook.id, !newBook.available).unwrap();
+        if (success) {
+          navigate(`/Library`);
+          console.log("Success");
+        }
       } else {
         // Using the reservationId, it checks in the book
         success = await checkBookIn(newBook.id);

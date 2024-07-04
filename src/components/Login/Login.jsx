@@ -22,9 +22,15 @@ export default function Login() {
     e.preventDefault();
     try {
       let success = false;
+
+      // Only returns message and token with this call
+      // described API includes user info, but I don't find them
+      // https://fsa-book-buddy-b6e748d1380d.herokuapp.com/docs/#-post-api-users-login-
       success = await loginUser(form).unwrap();
 
       if (success) {
+        console.log(success, `login`);
+
         navigate(`/User`);
       }
     } catch (error) {
