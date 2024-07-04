@@ -32,7 +32,7 @@ export default function UserDetails({ userProfile }) {
 
           {/* books that are currently checked out*/}
           <div className="">
-            {userProfile.books && <UserBookList bookList={userProfile.books} />}
+            {userProfile.books  && <UserBookList bookList={userProfile.books} />}
           </div>
         </div>
         <div>

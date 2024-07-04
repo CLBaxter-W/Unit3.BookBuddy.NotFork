@@ -13,10 +13,12 @@ export default function Library() {
     filterType: "author",
   });
 
-  const { data, isLoading, isSuccess } = useGetLibraryQuery();
+  const { data, isLoading, isSuccess, refetch } = useGetLibraryQuery();
 
   useEffect(() => {
     if (isSuccess) {
+      refetch();
+
       setLibrary(data.books);
 
       // for use in filtering displayed book list
