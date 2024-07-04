@@ -8,7 +8,7 @@ export default function UserBookList({ bookList }) {
       <table>
         <thead>
           <tr>
-            <th colSpan="3">Book List</th>
+            <th colSpan="3"></th>
           </tr>
         </thead>
         <tbody>

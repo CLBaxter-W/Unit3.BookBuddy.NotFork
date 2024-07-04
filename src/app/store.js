@@ -8,6 +8,7 @@ import registerReducer from "../components/Register/RegisterSlice";
 import userReducer from "../components/User/UserSlice";
 import libraryReducer from "../components/Library/LibrarySlice";
 import bookReducer from "../components/Book/BookSlice";
+import reserveReducer from "../components/User/UserReserveSlice";
 
 const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
     user: userReducer,
     library: libraryReducer,
     book: bookReducer,
+    reserve: reserveReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),
