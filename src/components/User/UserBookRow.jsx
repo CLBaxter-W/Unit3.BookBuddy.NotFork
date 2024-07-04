@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { usePatchAvailabilityMutation } from "../Book/BookSlice";
+import { useDeleteReservationMutation } from "./UserReserveSlice";
 
 export default function UserBookRow({ newBook }) {
   const [error, setError] = useState();
 
-  const [changeAvailability] = usePatchAvailabilityMutation();
+  const [checkBookOut] = usePatchAvailabilityMutation();
+  const [checkBookIn] = useDeleteReservationMutation();
 
-  // TODO - all the checkin/checkout calls
-
-  // Do we just check book in or out regardless of who its attached to?
-  //  OR
-  // 2 calls to be made -
-  //   1 to check out book (boolean and book id),
-  //   1 attach book to user
+  // We need 2 different kinds of calls for availability management
+  // IF the book is being checked out, we call PATCH /books/:bookId - the api handles
+  // creating a reservation - associating the book to the currently logged
+  // in user.   The reservation_id is what is stored in the users book list
+  // IF the book is being checked in, we call DELETE /reservations/:reservationId
+  // the api handles setting the book availability to true and removes the user/book
+  // association
+  //////
+  // When this UserBookRow is created for the Library - the bookId is a bookId and check out occurs
+  // When this UserBookRow is created for the UserDetails - the bookId is a reservationId and checkin occurs
 
   const setBookAvailability = async (e) => {
     e.preventDefault();
@@ -26,11 +31,13 @@ export default function UserBookRow({ newBook }) {
     try {
       let success = false;
 
-      // Using the book id, reverse its availability
-      success = await changeAvailability(
-        newBook.id,
-        !newBook.available
-      ).unwrap();
+      if (newBook.available) {
+        // Using the book id, it checks out the book
+        success = await checkBookOut(newBook.id, !newBook.available).unwrap();
+      } else {
+        // Using the reservationId, it checks in the book
+        success = await checkBookIn(newBook.id);
+      }
 
       if (success) {
         console.log("Success");
